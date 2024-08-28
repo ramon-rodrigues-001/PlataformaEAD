@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const User = require('./models/user.js')
 
 
 const registerRouter = require('./routers/register');
@@ -23,8 +24,18 @@ app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', anotacaoRouter)
 
-
-
+// pegar dados do usuario atraves do ID (ligado ao arquivo perfil)
+app.post('/getUserDate', async (req, res) => {
+    const userID = req.body
+    
+    try {
+        const usuario = await User.findOne({_id: userID.userID})
+        // console.log(usuario)
+        res.status(200).json({usuario})
+    } catch (error) {
+        res.status(401).json({message: 'erro ao tentar buscar dados do usuario'})
+    }
+})
 
 // Conexão com o MongoDB
 const mongoURI = 'mongodb+srv://ramon:13153080552@cluster0.cij4gvt.mongodb.net/';

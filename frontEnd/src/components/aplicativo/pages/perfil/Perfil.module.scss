@@ -1,10 +1,12 @@
 
 .container_perfil {
-    min-height: 100vh;
+    min-height: 90vh;
     
     .profile_container {
-        max-width: 600px;
+        max-width: 800px;
         margin: 20px auto;
+        display: flex;
+        align-items: center;
         padding: 20px;
         background-color: #f4f4f9;
         border-radius: 10px;
@@ -13,10 +15,11 @@
     
         .profile_header {
             margin-bottom: 20px;
+            min-width: 250px;
         
             .profile_avatar {
-                width: 140px;
-                height: 140px;
+                width: 160px;
+                height: 160px;
                 border-radius: 50%;
                 margin-bottom: 15px;
                 border: 3px solid #4a90e2;
@@ -27,18 +30,22 @@
                 font-weight: bold;
                 color: #333;
             }
-            }
+        }
         
-            .profile_body {
-                color: #556;
+        .profile_body {
+            min-width: 300px;
+            color: #556;
+            font-size: 1.2em;
+
+            .profile_nick {
+                margin-bottom: 10px;
+            }
 
             .profile_email {
-                font-size: 16px;
                 margin-bottom: 10px;
             }
 
             .profile_telefone {
-                font-size: 16px;
                 margin-bottom: 10px;
             }
         
