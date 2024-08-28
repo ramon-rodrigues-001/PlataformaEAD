@@ -1,0 +1,149 @@
+@import "../../../../styles/Cores.module.scss";
+
+
+.SectionBatePapo {
+    padding-bottom: 20px;
+    min-height: 88.5vh;
+
+
+    .navbar {
+        position: relative;
+        background-color: $itens_Pretos;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        border-radius: 5px;
+
+        .nav_item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 10px 100px;
+            transition: .3s;
+            border-radius: 5px;
+
+            &:hover {
+                background: linear-gradient(to left, $itens_Pretos, #00bcd4);
+                box-shadow:  -2px 2px 1px 2px rgba(0, 0, 0, 0.215);
+            }
+
+            &#direita:hover {
+                background: linear-gradient(to left, #00bcd4, $itens_Pretos);
+                box-shadow: 2px 2px 1px 2px rgba(0, 0, 0, 0.213);
+            }
+        }
+    
+        .center_button {
+           position:absolute; 
+           bottom: -30px; 
+           left: 50%; 
+           transform: translateX(-50%);
+           background-color: #00bcd4; 
+           border-radius: 50%; 
+           display:flex;
+           justify-content:center; align-items:center;
+           border: solid rgb(223, 217, 217) 5px;
+           height: 90px; 
+           width: 90px; 
+           transition: .2s;
+
+           &:hover {
+            border-width: 2px;
+            height: 95px; 
+            width: 95px; 
+           }
+         }
+        
+         .center_button a{
+            color:white;
+            font-size: 20px;
+            text-decoration: none;
+         }
+    }
+
+    
+
+    .containerDeCardsDeGrupos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        // overflow-x: scroll;
+        padding: 10px;
+
+        .cardDeGrupos {
+            background-color: $itens_Pretos;
+            color: white;
+            border-radius: 15px;
+            padding: 10px;
+            min-width: 250px;
+            height: 250px;
+            transition: .4s;
+
+            &:hover {
+                scale: .95;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1125px) {
+    .SectionBatePapo {
+        .containerDeCardsDeGrupos {
+            justify-content: center;
+        }
+    }
+}
+
+
+@media screen and (max-width: 865px) {
+    .SectionBatePapo {
+        .navbar {
+            font-size: 1em;
+
+            .nav_item {
+                padding: 10px 60px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 602px) {
+    .SectionBatePapo {
+        .containerDeCardsDeGrupos {
+            flex-direction: column;
+    
+            .cardDeGrupos {
+                min-width: 200px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 470px) {
+    .SectionBatePapo {
+        .navbar {
+            gap: 20px;
+
+            .nav_item {
+                padding: 10px 25px;
+            }
+
+            .center_button {
+                width: 75px;
+                height: 75px;
+            }
+            .center_button a{
+                font-size :13px ;
+            }
+        }
+    }
+}
