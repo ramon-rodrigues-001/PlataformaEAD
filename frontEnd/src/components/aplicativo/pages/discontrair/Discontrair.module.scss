@@ -5,7 +5,6 @@
     min-height: 88.5vh;
 
 
-
     // ESTILO PARA MAIS DE UM COMPONENTE
     .tipoDePublication {
         text-align: center;
@@ -201,5 +200,30 @@
                 }
             }
         }
+    }
+}
+
+
+.cardProximasAulas {
+    // background-color: red;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+
+    .imgProximaAula {
+        width: 100px;
+        border-radius: 10px;
+        border: solid 2px rgba(255, 255, 255, 0.043);
+    }
+
+    p {
+        padding: 0;
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.208);
     }
 }

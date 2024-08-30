@@ -3,7 +3,6 @@ import styles from "./Header.module.scss"
 import { useState } from "react"
 import Menu from "./menu/Menu"
 
-
 function Header(props) {
   const [menuActive, setMenuActive] = useState(false)
   const {mudarTema, tema} = props

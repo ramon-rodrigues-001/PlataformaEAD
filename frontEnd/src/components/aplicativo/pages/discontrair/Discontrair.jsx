@@ -27,7 +27,16 @@ function Discontrair(props) {
                     </div>
                   </div>
                   {/* <img src="/logo-1.png" alt="background-home" className={styles.img_background}/> */}
-                  <iframe src="https://www.youtube.com/embed/zHKHMmEG9vE?si=n_KjfvRmdZsOpBaZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className={styles.img_background}></iframe>
+                  <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1004536548?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                      title="Teste" className={styles.img_background}
+                    ></iframe>
+                  </div>
+                  
                 </div>
 
                 <div className={styles.post}>
@@ -53,12 +62,31 @@ function Discontrair(props) {
                 </div>
               </div>
 
-
               {/* Anucios */}
               <div className={styles.container_anuncios}>
                 <div className={styles.anuncios}>
-                  <p className={styles.tipoDePublication}>Mais Cursos</p>
-                  Vazio
+                  <p className={styles.tipoDePublication}>Próximos</p>
+
+                  <div className={styles.cardProximasAulas}>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEScTsqIPluvXxy3x5e5V9Nv-tqsctPtWqFw&s" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <div>
+                      <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.cardProximasAulas}>
+                    <img src="https://marketplace.canva.com/EAE6hxWHL2Y/1/0/1600w/canva-thumbnail-vlog-viagem-duas-fotos-texto-preto-e-branco-com-sombra---miniatura-do-youtube-cBO8eDS70S8.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <div>
+                      <p>Lorem ipsum dolor sit amet ipsum dolor sit amet.</p>
+                    </div>
+                  </div>
+
+                  <div className={styles.cardProximasAulas}>
+                    <img src="https://i.ytimg.com/vi/uihCdanYKps/maxresdefault.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <div>
+                      <p>Lorem ipsum dolor sit amet ipsum dolor.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
