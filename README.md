@@ -1,24 +1,21 @@
-# **🎓 Nome do Projeto**
+# **🎓 Plataforma EAD (Vortex)**
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)
 
-## Demonstração em Vídeo
-<video width="600" controls>
-  <source src="./frontEnd/public/apresentandoProjeto.mp4" type="video/mp4">
-  Seu navegador não suporta a reprodução de vídeos.
-</video>
+## Demonstração
+<img src="./frontEnd/public/apresentandoProjeto.png" alt="Imagem do Projeto" />
 
 
 ## **📚 Visão Geral**
 
-**Nome do Projeto** é uma plataforma de [descrição breve do projeto]. Nosso objetivo é [objetivo principal]. Este projeto oferece [principais funcionalidades ou benefícios].
+**Vortex** é uma plataforma de edcação a distancia. Nosso objetivo é criar uma escola de programação. Este projeto oferece cursos feitos por professores diplomados com otima didatica.
 
 ## **🚀 Funcionalidades**
 
-- **🔐 Segurança de última geração**: [Descrição da funcionalidade]
-- **🌍 Acessível de qualquer lugar**: [Descrição da funcionalidade]
-- **📊 Painel de controle intuitivo**: [Descrição da funcionalidade]
-- **⚡ Alta performance**: [Descrição da funcionalidade]
+- **🔐 Otima qualidade de video**
+- **🌍 Sistema de anotação**
+- **📊 Painel de controle intuitivo**
+- **⚡ Alta performance**
 
 ## **🛠️ Tecnologias Utilizadas**
 
@@ -45,3 +42,7 @@ $ npm install
 
 # Inicie o servidor
 $ npm start
+````
+
+# **Precisamos de você para seguir em frente sinta a vontade para explorar o codigo e contribuir com ideias e inovações**
+**Procuramos tambem professores dispostos a entrar nesta jornada**
