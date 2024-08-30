@@ -59,9 +59,17 @@
          }
         
          .center_button a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color:white;
-            font-size: 20px;
             text-decoration: none;
+
+
+            img {
+                width: 80%;
+                padding-left: 7px;
+            }
          }
     }
 
@@ -103,10 +111,17 @@
                 z-index: 1;
                 padding: 20px;
                 text-align: center;
+                height: 33%;
+                transition: .3s;
 
                 p {
                     font-size: .9em;
                     padding: 5px 0px;
+                }
+
+                .discritionCurso {
+                    color: transparent;
+                    padding: 20px 0px;
                 }
             }
 
@@ -114,6 +129,16 @@
                 box-shadow: 0px 10px 7px rgba(245, 245, 245, 0.059);
                 // scale: 1.02;
                 transform: translateY(-10px);
+                
+                .textCard {
+                    height: 100%;
+                    border-radius: 0;
+
+                    .discritionCurso {
+                        color: rgb(255, 255, 255);
+                        transition: 1.5s;
+                    }
+                }
             }
         }
     }

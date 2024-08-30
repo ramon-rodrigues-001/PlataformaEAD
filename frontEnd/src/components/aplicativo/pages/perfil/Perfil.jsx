@@ -58,7 +58,7 @@ function Perfil() {
     }, [situacao]);
 
 
-    if (!dadosDoUsuario && situacao === 'Logado') {
+    if (!dadosDoUsuario && situacao !== 'Deslogado') {
         return <p>Carregando...</p>;
     }
     

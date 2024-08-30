@@ -107,13 +107,13 @@ function Aside(props) {
       </button>
 
       <div className='containerDeAnotacao'>
-        <a href="/chatpv" className={styles.cardsAnotacao}>
+        {/* <a href="/chatpv" className={styles.cardsAnotacao}>
           <p>Arry Function</p>
           <div className={styles.informationsAmigo}>
             <i className="bi bi-pencil-fill" onClick={mudarNome}></i>
             <i className="bi bi-trash3-fill"></i>
           </div>
-        </a>
+        </a> */}
       </div>
     </div>
   );
