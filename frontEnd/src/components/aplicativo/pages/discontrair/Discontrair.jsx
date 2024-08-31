@@ -68,23 +68,28 @@ function Discontrair(props) {
                   <p className={styles.tipoDePublication}>Próximos</p>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEScTsqIPluvXxy3x5e5V9Nv-tqsctPtWqFw&s" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
-                      <p>Lorem ipsum dolor sit amet.</p>
+                      <p>
+
+  
+O que é JavaScript?
+</p>
                     </div>
                   </div>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="https://marketplace.canva.com/EAE6hxWHL2Y/1/0/1600w/canva-thumbnail-vlog-viagem-duas-fotos-texto-preto-e-branco-com-sombra---miniatura-do-youtube-cBO8eDS70S8.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
-                      <p>Lorem ipsum dolor sit amet ipsum dolor sit amet.</p>
+                      <p>
+                      Tipos de Dados, Strings, Números e Operações.</p>
                     </div>
                   </div>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="https://i.ytimg.com/vi/uihCdanYKps/maxresdefault.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
-                      <p>Lorem ipsum dolor sit amet ipsum dolor.</p>
+                      <p>Expressões Lógicas e Estruturas de Controle.</p>
                     </div>
                   </div>
                 </div>

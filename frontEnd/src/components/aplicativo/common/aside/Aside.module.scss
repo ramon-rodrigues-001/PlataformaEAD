@@ -104,6 +104,8 @@
                 border-radius: 40% 50% 50% 1%;
                 padding: 2px 5px;
             }
+
+            
         }
 
         &:hover {
@@ -112,6 +114,11 @@
         }
     }
 
+.avisoDeAnotacao {
+    color: rgb(133, 132, 132);
+    text-align: center;
+    margin-top: 20px;
+}
 
     &::-webkit-scrollbar {
         width: 6px;

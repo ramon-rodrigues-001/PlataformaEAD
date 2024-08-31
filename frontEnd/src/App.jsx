@@ -10,6 +10,7 @@ import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
 import { useEffect, useState } from 'react';
+import Admin from './components/aplicativo/pages/admin/admin';
 // import ChatPv from './components/aplicativo/pages/chat_pv/ChatPv';
 
 
@@ -70,14 +71,15 @@ export default function App() {
                 < Header mudarTema={mudarTema} tema={tema}/>
 
                 <main className={styles.main} >
-                    <div className={styles.containerAsideDaEsquerda}>
+                    {/* <div className={styles.containerAsideDaEsquerda}>
                         < Aside /> 
-                    </div>
+                    </div> */}
                     <div className={styles.containerVitrineDaDireita}>
                         <BrowserRouter>
                             <Routes>
                                 <Route path="/" element={
-                                    < Discontrair tema={tema}/>
+                                    // < Discontrair tema={tema}/>
+                                    < Admin />
                                 }/>
                                 
                                 <Route path="/batePapo" element={

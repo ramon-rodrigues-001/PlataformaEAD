@@ -114,6 +114,7 @@ function Aside(props) {
             <i className="bi bi-trash3-fill"></i>
           </div>
         </a> */}
+        <p className={styles.avisoDeAnotacao}>Faça login para ter acesso as anotações</p>
       </div>
     </div>
   );
