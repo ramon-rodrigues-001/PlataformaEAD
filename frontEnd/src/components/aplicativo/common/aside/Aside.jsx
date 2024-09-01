@@ -93,6 +93,7 @@ function Aside(props) {
     console.log(elemento);
   };
 
+
   return (
     <div className={styles.aside} id={taDentroDoMenu && styles.dentroDoMenu} onLoad={creatNota}>
       <h2>Anotações</h2>

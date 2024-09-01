@@ -34,6 +34,18 @@ export default function App() {
         }
     }
 
+    // Ocultar ou exibir aside
+    const ocultarAside = () => {
+        const asideElement = document.querySelector(`.${styles.containerAsideDaEsquerda}`);
+
+        if ( asideElement.style.display === 'none') {
+            asideElement.style.display = 'block'
+        }
+        else {
+            asideElement.style.display = 'none'
+        }
+    }
+
 
 
     //======= SISTEMA DE PRE-LOAD-LOADING =======
@@ -68,18 +80,19 @@ export default function App() {
 
 
         <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
-                < Header mudarTema={mudarTema} tema={tema}/>
+                < Header mudarTema={mudarTema} tema={tema} ocultarAside={ocultarAside}/>
 
                 <main className={styles.main} >
-                    {/* <div className={styles.containerAsideDaEsquerda}>
+                    <div className={styles.containerAsideDaEsquerda}>
                         < Aside /> 
-                    </div> */}
+                    </div>
+
                     <div className={styles.containerVitrineDaDireita}>
                         <BrowserRouter>
                             <Routes>
                                 <Route path="/" element={
-                                    // < Discontrair tema={tema}/>
-                                    < Admin />
+                                    < Discontrair tema={tema}/>
+                                    // < Admin />
                                 }/>
                                 
                                 <Route path="/batePapo" element={

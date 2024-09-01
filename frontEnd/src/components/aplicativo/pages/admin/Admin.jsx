@@ -29,13 +29,19 @@ const Admin = () => {
             <div className={styles.course}>
                 <h2>Adicionar Curso</h2>
                 <form onSubmit={handleAddCourse} className={styles.form}>
+                    <input type="text" value="Javascript II" disabled className={styles.inputModule} />
+
                     <div className={styles.form_group}>
-                        <label htmlFor="courseName">Nome do Curso</label>
-                        <input type="text" id="courseName" name="courseName" placeholder="Digite o nome do curso" required />
+                        <label htmlFor="aulaName">Nome da aula</label>
+                        <input type="text" id="aulaName" name="aulaName" placeholder="Digite o nome da aula" required />
                     </div>
                     <div className={styles.form_group}>
-                        <label htmlFor="courseCategory">Categoria</label>
-                        <input type="text" id="courseCategory" name="courseCategory" placeholder="Digite a categoria do curso" required />
+                        <label htmlFor="urlAula">URL da aula</label>
+                        <input type="text" id="urlAula" name="urlAula" placeholder="Cole https://aula-1" required />
+                    </div>
+                    <div className={styles.form_group}>
+                        <label htmlFor="nomeProfessor">Nome do professor</label>
+                        <input type="text" id="nomeProfessor" name="nomeProfessor" placeholder="Digite o nome do professor" required />
                     </div>
                     <button type="submit" className={styles.submit_btn}>Adicionar Curso</button>
                 </form>

@@ -5,7 +5,7 @@ import Menu from "./menu/Menu"
 
 function Header(props) {
   const [menuActive, setMenuActive] = useState(false)
-  const {mudarTema, tema} = props
+  const {mudarTema, tema, ocultarAside} = props
 
   const setMenu = () => {
     setMenuActive(!menuActive)
@@ -13,6 +13,8 @@ function Header(props) {
 
   return (
     <header id={tema === 'Escuro' ? styles.temaDark : null}>
+        <i class="bi bi-arrows" id={styles.iconeAside} onClick={ocultarAside}></i>
+
         <h1>Vortex</h1>
         <ul>
           <li id={styles.discontrair}>

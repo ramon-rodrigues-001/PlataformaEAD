@@ -12,6 +12,15 @@
     max-height: 400px;
     position: fixed;
 
+    .fecharAbrir {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 1.3em;
+        transition: .3s;
+        
+        &:hover {scale:1.2;}
+    }
 
     // ESTILO ADAPTADO PARA INSERIR NO MENU PARA MOBILE
     &#dentroDoMenu {
