@@ -10,7 +10,7 @@ function Discontrair(props) {
           
             {/* Welcome */}
             <div className={styles.welcome}>
-              <h2>Welcome! à nossa Plataforma de Comunidade!, Capelinha</h2> 
+              <h2>Você esta estudando : JavaScript II</h2> 
             </div><br />
 
 

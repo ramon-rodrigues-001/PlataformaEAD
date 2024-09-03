@@ -124,14 +124,8 @@
                     color: transparent;
                     padding: 20px 0px;
                 }
-            }
 
-            &:hover {
-                box-shadow: 0px 10px 7px rgba(245, 245, 245, 0.059);
-                // scale: 1.02;
-                transform: translateY(-10px);
-                
-                .textCard {
+                &:hover {
                     height: 100%;
                     border-radius: 0;
 
@@ -140,6 +134,11 @@
                         transition: 1.5s;
                     }
                 }
+            }
+
+            &:hover {
+                box-shadow: 0px 10px 7px rgba(245, 245, 245, 0.059);
+                transform: translateY(-10px);
             }
         }
     }

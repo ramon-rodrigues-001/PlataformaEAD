@@ -28,7 +28,7 @@ function BatePapo() {
           <div className={styles.textCard}>
               <h2>JAVASCRIPT</h2>
               <p>[ Fundamentos I ]</p>
-              <p className={styles.discritionCurso}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure iusto laborum molestias! At dicta inventore.!</p>
+              <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
           </div>
         </div>
         <div className={styles.cardDeGrupos}>
@@ -37,14 +37,9 @@ function BatePapo() {
           <div className={styles.textCard}>
               <h2>JAVASCRIPT</h2>
               <p>[ Fundamentos II ]</p>
-              <p className={styles.discritionCurso}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
           </div>
         </div>
-        <div className={styles.cardDeGrupos}>
-          <img src="https://i.pinimg.com/originals/42/14/5c/42145ce95f49250e00448d66eeb2e9ca.jpg" alt="" />
-        </div>
-
-        <div className={styles.cardDeGrupos}>Vazio</div>
       </div>
     </section>
   )
