@@ -18,7 +18,7 @@ function PlayAula(props) {
             <div className={styles.container_De_Aula}>
               <div>
                 <div className={styles.aula}>
-                  <p className={styles.tipoDePublication}>ADM</p>
+                  <p className={styles.tipoDePublication}>Especial</p>
                   <div className={styles.perfilDoProfessor}>
                     <div className={styles.imgDoProfessor}></div>
                     <div>

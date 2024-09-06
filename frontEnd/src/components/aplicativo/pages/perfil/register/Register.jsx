@@ -67,7 +67,7 @@ export default function Register(props) {
         <div className={styles.formulario} id={tema === 'Escuro' ? styles.temaDark : null}>
             <form onSubmit={handleSubmit}>
                 
-                <h1 className={styles.title}>Register</h1>
+                <h1 className={styles.title}>Welcome</h1>
 
                 <div className={styles.inputContainer}>
                     <label htmlFor="nickname" className={styles.label}>Nome unico (nickName)</label>

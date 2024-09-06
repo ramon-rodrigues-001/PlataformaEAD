@@ -9,7 +9,7 @@
     .navbar {
         position: relative;
         background-color: $itens_Pretos;
-        font-size: 1.5em;
+        font-size: 1.3em;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -48,14 +48,14 @@
            display:flex;
            justify-content:center; align-items:center;
            border: solid rgb(223, 217, 217) 5px;
-           height: 90px; 
-           width: 90px; 
+           height: 80px; 
+           width: 80px; 
            transition: .2s;
 
            &:hover {
             border-width: 2px;
-            height: 95px; 
-            width: 95px; 
+            height: 85px; 
+            width: 85px; 
            }
          }
         
@@ -78,10 +78,17 @@
 
     .containerDeCardsDeCursos {
         display: flex;
-        flex-wrap: wrap;
         gap: 50px 20px;
-        // overflow-x: scroll;
-        padding: 10px;
+        overflow-x: auto;
+        padding: 30px 20px 20px 0px;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
 
         .cardDeCurso {
             display: flex;
@@ -90,11 +97,11 @@
             position: relative;
             background-color: $itens_Pretos;
             color: white;
-            border-radius: 15px;
             overflow: hidden;
             box-shadow: 2px 5px 2px rgba(245, 245, 245, 0.11);
             border: solid 2px rgba(255, 255, 255, 0.096);
-            width: 230px;
+            min-width: 230px;
+            max-width: 235px;
             height: 310px;
             transition: .4s;
 
@@ -114,6 +121,10 @@
                 text-align: center;
                 height: 33%;
                 transition: .3s;
+
+                h2 {
+                    font-size: 1.2em;
+                }
 
                 p {
                     font-size: .9em;
@@ -146,16 +157,16 @@
 
 
 
-@media screen and (max-width: 1125px) {
-    .SectionVitrineCursos {
-        .containerDeCardsDeCursos {
-            justify-content: center;
-        }
-    }
-}
+// @media screen and (max-width: 1125px) {
+//     .SectionVitrineCursos {
+//         .containerDeCardsDeCursos {
+//             justify-content: center;
+//         }
+//     }
+// }
 
 
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 965px) {
     .SectionVitrineCursos {
         .navbar {
             font-size: 1em;
@@ -168,18 +179,19 @@
 }
 
 
-@media screen and (max-width: 602px) {
-    .SectionVitrineCursos {
-        .containerDeCardsDeCursos {
-            flex-direction: column;
-            align-items: center;
+// @media screen and (max-width: 602px) {
+//     .SectionVitrineCursos {
+//         .containerDeCardsDeCursos {
+//             // flex-direction: column;
+//             // align-items: center;
     
-            .cardDeCurso {
-                min-width: 200px;
-            }
-        }
-    }
-}
+//             .cardDeCurso {
+//                 min-width: 200px;
+//                 height: 270px;
+//             }
+//         }
+//     }
+// }
 
 
 

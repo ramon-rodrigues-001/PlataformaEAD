@@ -19,7 +19,7 @@
     justify-content: center;
     max-width: 50%;
     min-height: 89.5vh;
-    margin: 10px auto;
+    margin: 10px auto 30px auto;
 
     &#temaDark {
         .title {
@@ -30,8 +30,7 @@
                 color: white;
             }
             .input {
-                border-color: white;
-                color: white;
+                border-color: rgba(255, 255, 255, 0.493);
             }
         }
     }
@@ -52,13 +51,13 @@
 
     .label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         color: $itens_Pretos;
     }
     
     .input {
-        background-color: transparent;
-        border: solid 1px black;
+        background-color: rgb(255, 255, 255);
+        border: solid 3px rgba(0, 0, 0, 0.584);
         width: 100%;
         padding: 10px;
         border-radius: 5px;
@@ -96,6 +95,7 @@
 @media screen and (max-width: 500px) {
     .formulario {
         max-width: 90%;
+        margin: 10px auto;
     }
 }
 

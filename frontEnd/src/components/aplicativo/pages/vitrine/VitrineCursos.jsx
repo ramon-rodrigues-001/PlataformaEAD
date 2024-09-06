@@ -21,6 +21,8 @@ function VitrineCursos() {
           </div>
       </div>
 
+
+
       <div className={styles.containerDeCardsDeCursos}>
         <div className={styles.cardDeCurso}>
           <img src="https://i.pinimg.com/originals/e4/01/27/e40127c71b4a07bb4eb02cd62f711dbb.jpg" alt="" />
@@ -35,8 +37,70 @@ function VitrineCursos() {
           <img src="https://i.pinimg.com/originals/ab/5d/55/ab5d5545f0f0ae703a77c023074edc34.jpg" alt="" />
           
           <div className={styles.textCard}>
-              <h2>JAVASCRIPT</h2>
+              <h2>JAVASCRIPT AVANÇADO</h2>
               <p>[ Fundamentos II ]</p>
+              <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
+          </div>
+        </div><div className={styles.cardDeCurso}>
+          <img src="https://w0.peakpx.com/wallpaper/469/148/HD-wallpaper-fullstack-development-nodejs-programmer-technology-thumbnail.jpg" alt="" />
+
+          <div className={styles.textCard}>
+              <h2>JAVASCRIPT DOM</h2>
+              <p>[ Fundamentos III ]</p>
+              <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
+          </div>
+        </div>
+        <div className={styles.cardDeCurso}>
+          <img src="https://i.pinimg.com/originals/b2/46/97/b24697a8c089acc9333e1289cfa72df5.jpg" alt="" />
+          
+          <div className={styles.textCard}>
+              <h2>REACT</h2>
+              <p>[ Fundamentos I ]</p>
+              <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
+          </div>
+        </div>
+
+        <div className={styles.cardDeCurso}>
+          <img src="https://i.pinimg.com/originals/e4/01/27/e40127c71b4a07bb4eb02cd62f711dbb.jpg" alt="" />
+
+          <div className={styles.textCard}>
+              <h2>JAVASCRIPT</h2>
+              <p>[ Fundamentos I ]</p>
+              <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <br />
+
+
+      
+      <div className={styles.containerDeCardsDeCursos}>
+        <div className={styles.cardDeCurso}>
+          <img src="https://i.pinimg.com/originals/ab/5d/55/ab5d5545f0f0ae703a77c023074edc34.jpg" alt="" />
+          
+          <div className={styles.textCard}>
+              <h2>JAVASCRIPT AVANÇADO</h2>
+              <p>[ Fundamentos II ]</p>
+              <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
+          </div>
+        </div><div className={styles.cardDeCurso}>
+          <img src="https://w0.peakpx.com/wallpaper/469/148/HD-wallpaper-fullstack-development-nodejs-programmer-technology-thumbnail.jpg" alt="" />
+
+          <div className={styles.textCard}>
+              <h2>JAVASCRIPT DOM</h2>
+              <p>[ Fundamentos III ]</p>
+              <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
+          </div>
+        </div>
+        <div className={styles.cardDeCurso}>
+          <img src="https://i.pinimg.com/originals/b2/46/97/b24697a8c089acc9333e1289cfa72df5.jpg" alt="" />
+          
+          <div className={styles.textCard}>
+              <h2>REACT</h2>
+              <p>[ Fundamentos I ]</p>
               <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
           </div>
         </div>
