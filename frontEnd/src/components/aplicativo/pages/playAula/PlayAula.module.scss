@@ -1,6 +1,6 @@
 @import "../../../../styles/Cores.module.scss";
 
-.discontrair {
+.sectionPlayAula {
     font-weight: bolder;
     min-height: 88.5vh;
 
@@ -35,11 +35,11 @@
         }
 
 
-        .container_De_Posts {
+        .container_De_Aula {
             position: relative;
             display: flex;
 
-            .post {
+            .aula {
                 margin-bottom: 30px;
                 background-color: $background_Posts; 
                 border: solid .5px black;
@@ -51,11 +51,11 @@
                 overflow: hidden;
 
                 
-                .perfilDoPublicador {
+                .perfilDoProfessor {
                     display: flex;
                     padding-bottom: 20px;
     
-                    .imgDePerfil {
+                    .imgDoProfessor {
                         border: solid 1px rgba(0, 0, 0, 0.468);
                         background: url('https://avatars.githubusercontent.com/u/109005234?s=400&u=510ffcecaa7e9c325174800f2f9041e88465f3f4&v=4') center center no-repeat;
                         background-size: cover;
@@ -66,25 +66,13 @@
                         width: 50px;
                         height: 50px;
                     }
-                    .nomeDoUsuario {
-                        padding: 0px 10px;
-                        font-size: 1.1em;
-                    }
-                    .dataDePublication {
-                        padding: 0px 10px;
-                        font-weight: 400;
+                    .nomeDoProfessor {
+                        padding: 2px 15px;
                     }
                 }
     
 
-                .descrition {
-                    margin: 14px 0px 20px 0px;
-                    font-size: .9em;
-                    font-weight: 600;
-                    font-family: Arial, Helvetica, sans-serif;
-                }
-
-                .img_background {
+                .videoAula {
                     width: 100%;
                     min-height: 270px;
                     max-height: 500px;
@@ -119,7 +107,8 @@
                 }
             }
 
-            .container_anuncios {
+
+            .container_proxima_aula {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
@@ -128,7 +117,7 @@
                 top: 0;
                 right: 5px;
 
-                .anuncios {
+                .proximasAulas {
                     position: relative;
                     overflow: hidden;
                     border: solid 1px black;
@@ -137,6 +126,30 @@
                     height: 400px;
                     padding: 10px;
                     border-radius: 10px;
+
+                    .cardProximasAulas {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        padding: 5px 15px;
+                        margin: 0px -10px;
+                    
+                        .imgProximaAula {
+                            width: 100px;
+                            border-radius: 10px;
+                            border: solid 2px rgba(0, 0, 0, 0.201);
+                        }
+                    
+                        p {
+                            padding: 0;
+                        }
+                    
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.208);
+                        }
+                    }
                 }
             }
         }        
@@ -146,8 +159,8 @@
     // ESTILO PARA TEMA DARK
     &#temaDark {
         .background {
-            .container_De_Posts {
-                .post {
+            .container_De_Aula {
+                .aula {
                     background-color: $itens_Pretos; 
                     color: white;
 
@@ -160,8 +173,8 @@
                         }
                     }
                 }
-                .container_anuncios {
-                    .anuncios {
+                .container_proxima_aula {
+                    .proximasAulas {
                         border: solid rgb(255, 255, 255) 1px;
                         color: white;
                     }
@@ -173,57 +186,24 @@
 
 
 @media screen and (max-width: 1025px) {
-    .discontrair {
+    .sectionPlayAula {
         .background {
-            .container_De_Posts {
+            .container_De_Aula {
                 flex-direction: column-reverse;
 
-                .post {
+                .aula {
                     margin: 0px auto 30px auto;
                     width: 100%;
                 }
     
-                .container_anuncios {
+                .container_proxima_aula {
                     margin-bottom: 20px;
                     width: 100%;
                     height: 200px;
                     position: relative;
                     right: 0;
-
-                    .anuncios {
-                        border-radius: 10px;
-
-                        &#anuncio_2 {
-                            display: none;
-                        }
-                    }
                 }
             }
         }
-    }
-}
-
-
-.cardProximasAulas {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin: 0px -10px;
-
-    .imgProximaAula {
-        width: 100px;
-        border-radius: 10px;
-        border: solid 2px rgba(0, 0, 0, 0.201);
-    }
-
-    p {
-        padding: 0;
-    }
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.208);
     }
 }

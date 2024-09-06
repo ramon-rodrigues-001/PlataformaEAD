@@ -3,7 +3,7 @@ import styles from './styles/App.module.scss'
 
 import Header from './components/aplicativo/common/header/Header'
 import Aside from './components/aplicativo/common/aside/Aside'
-import Discontrair from './components/aplicativo/pages/discontrair/Discontrair'
+import PlayAula from './components/aplicativo/pages/playAula/PlayAula'
 import VitrineCursos from './components/aplicativo/pages/vitrine/VitrineCursos';
 import Noticias from './components/aplicativo/pages/noticias/Noticias';
 import Perfil from './components/aplicativo/pages/perfil/Perfil';
@@ -91,7 +91,7 @@ export default function App() {
                         <BrowserRouter>
                             <Routes>
                                 <Route path="/" element={
-                                    < Discontrair tema={tema}/>
+                                    < PlayAula tema={tema}/>
                                     // < Admin />
                                 }/>
                                 
