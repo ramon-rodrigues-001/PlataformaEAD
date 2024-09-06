@@ -1,8 +1,8 @@
-import styles from "./BatePapo.module.scss"
+import styles from "./VitrineCursos.module.scss"
 
-function BatePapo() {
+function VitrineCursos() {
   return (
-    <section className={styles.SectionBatePapo}>
+    <section className={styles.SectionVitrineCursos}>
       <div className={styles.navbar}>
           <div className={styles.nav_item}>
             <i class="bi bi-plus-square-dotted"></i>
@@ -21,8 +21,8 @@ function BatePapo() {
           </div>
       </div>
 
-      <div className={styles.containerDeCardsDeGrupos}>
-        <div className={styles.cardDeGrupos}>
+      <div className={styles.containerDeCardsDeCursos}>
+        <div className={styles.cardDeCurso}>
           <img src="https://i.pinimg.com/originals/e4/01/27/e40127c71b4a07bb4eb02cd62f711dbb.jpg" alt="" />
 
           <div className={styles.textCard}>
@@ -31,7 +31,7 @@ function BatePapo() {
               <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
           </div>
         </div>
-        <div className={styles.cardDeGrupos}>
+        <div className={styles.cardDeCurso}>
           <img src="https://i.pinimg.com/originals/ab/5d/55/ab5d5545f0f0ae703a77c023074edc34.jpg" alt="" />
           
           <div className={styles.textCard}>
@@ -45,4 +45,4 @@ function BatePapo() {
   )
 }
 
-export default BatePapo
+export default VitrineCursos

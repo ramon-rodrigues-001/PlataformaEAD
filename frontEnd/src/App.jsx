@@ -4,7 +4,7 @@ import styles from './styles/App.module.scss'
 import Header from './components/aplicativo/common/header/Header'
 import Aside from './components/aplicativo/common/aside/Aside'
 import Discontrair from './components/aplicativo/pages/discontrair/Discontrair'
-import BatePapo from './components/aplicativo/pages/bate_papo/BatePapo';
+import VitrineCursos from './components/aplicativo/pages/vitrine/VitrineCursos';
 import Noticias from './components/aplicativo/pages/noticias/Noticias';
 import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
@@ -96,7 +96,7 @@ export default function App() {
                                 }/>
                                 
                                 <Route path="/batePapo" element={
-                                    < BatePapo />
+                                    < VitrineCursos />
                                 }/>
 
                                 <Route path="/noticias" element={
