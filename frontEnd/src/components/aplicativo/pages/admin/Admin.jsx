@@ -9,9 +9,18 @@ const Admin = () => {
     const handleAddCourse = (e) => {
         e.preventDefault();
         const courseName = e.target.courseName.value;
-        const courseCategory = e.target.courseCategory.value;
-        setCourses([...courses, { name: courseName, category: courseCategory }]);
-        setIsModalOpen(false);
+        
+        fetch('/api/addcursos', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nomeCurso: 'Novo Curso',
+              professor: { nomeProfessor: 'Isaac Nilton', descricaoProfessor: 'Descrição do professor' }
+            })
+          }).then(response => response.json())
+            .then(data => console.log(data));
     };
 
     return (

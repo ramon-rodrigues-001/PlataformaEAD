@@ -76,11 +76,11 @@ function PlayAula(props) {
                 <div className={styles.proximasAulas}>
                   <p className={styles.tipoDePublication}>Próximos</p>
 
-                  {dataCurse.aulas.map((element, index) => (
+                  {dataCurse.cursos[0].aulas.map((element, index) => (
                     <div className={styles.cardProximasAulas}
                     data-nome-aula={element.nomeAula} onClick={escolherAula}>
-                      {element.capa ? (
-                        <img src={element.capa} alt="Capa da aula" className={styles.imgProximaAula}/>
+                      {element.capaAula ? (
+                        <img src={element.capaAula} alt="Capa da aula" className={styles.imgProximaAula}/>
                       ) : (
                         <img src="/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
                       )}

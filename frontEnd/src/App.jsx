@@ -92,7 +92,6 @@ export default function App() {
                             <Routes>
                                 <Route path="/" element={
                                     < PlayAula tema={tema}/>
-                                    // < Admin />
                                 }/>
                                 
                                 <Route path="/batePapo" element={
@@ -119,6 +118,10 @@ export default function App() {
                                 {/* <Route path="/chatpv" element={
                                     < ChatPv tema={tema} />
                                 } /> */}
+
+                                <Route path="/admin" element={
+                                    < Admin />
+                                } />
                             </Routes>
                         </BrowserRouter>
                     </div>

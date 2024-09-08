@@ -48,7 +48,6 @@ function Perfil() {
         
                 const data = await response.json();
                 setDadosDoUsuario(data.usuario);
-                console.log(dadosDoUsuario);
             } catch (error) {
                 console.error('Erro ao buscar os dados do usuário:', error);
             }
@@ -88,6 +87,14 @@ function Perfil() {
                             {dadosDoUsuario.telefone}
                         </p>
                         <p className={styles.profile_bio}>Lorem ipsum, dolor sit amet Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde assumenda fugiat maiores autem, tempore, doloribus.</p>
+
+                        {dadosDoUsuario.rule === 'Admin' && (
+                            <a href="admin/">
+                                <button>
+                                    ADMIN
+                                </button>
+                            </a>
+                        )}
                     </div>
                 </div>
 

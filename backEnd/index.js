@@ -9,6 +9,7 @@ const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const anotacaoRouter = require('./routers/anotacao')
 
+
  
 const app = express();
 const server = http.createServer(app);
