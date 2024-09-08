@@ -4,21 +4,24 @@
         "nomeProfessor" : "Isaac Nilton",
         "descricaoProfesor" : "formado no intituto de capelinha"
     },
-    "aulas" : {
-        "aula1" : {
+    "aulas" : [
+        {
+            "capa" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqPn1f_ThKVFg80bVzvKOG65Tl4fT-78Qng&s",
             "nomeAula" : "O que é JavaScript?",
             "urlAula" : "https://",
-            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit. Ipsam tenetur temporibus expedita in illo beat."
+            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit. Ipsam tenetur temporibus expedita in illo beat.",
+            "destaque" : "Especial"
         },
-        "aula2" : {
+        {
             "nomeAula" : "Tipos de Dados, Strings, Números e Operações.",
             "urlAula" : "https://",
             "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo."
         },
-        "aula3" : {
+        {
             "nomeAula" : "Expressões Lógicas e Estruturas de Controle.",
             "urlAula" : "https://",
-            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit."
+            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit.",
+            "destaque" : "Atenção"
         }
-    }
+    ]
 }

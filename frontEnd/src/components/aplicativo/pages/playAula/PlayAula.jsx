@@ -1,8 +1,16 @@
 import styles from "./PlayAula.module.scss"
+import dataCurse from "../../../../../dadosJson/cursos.json"
 
 function PlayAula(props) {
   const tema = props.tema
   console.log(tema)
+
+
+    const escolherAula = (event) => {
+      const escolha = event.currentTarget.dataset.nomeAula
+      console.log(escolha)
+    }
+
 
   return (
     <div className={styles.sectionPlayAula} id={tema === 'Escuro' ? styles.temaDark : null}>
@@ -10,8 +18,10 @@ function PlayAula(props) {
           
             {/* Welcome */}
             <div className={styles.welcome}>
-              <h2>Você esta estudando : JavaScript II</h2> 
+              <h2>Você esta estudando :  {dataCurse.nomeCurso}</h2> 
             </div><br />
+
+
 
 
             {/* Container de posts */}
@@ -50,10 +60,6 @@ function PlayAula(props) {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, 
                   </div>
                   <img src="/logo-2.png" alt="background-home" className={styles.img_background}/>
-                  {/* <div className={styles.curtidas}>
-                    <span><i class="bi bi-hand-thumbs-up-fill"></i> 16</span>
-                    <span><i class="bi bi-hand-thumbs-down-fill"></i> 3</span>
-                  </div> */}
                   <div className={styles.curtidas}>
                     <span><i class="bi bi-hand-thumbs-up"></i> 16</span>
                     <span><i class="bi bi-hand-thumbs-down"></i> 3</span>
@@ -61,32 +67,29 @@ function PlayAula(props) {
                 </div>
               </div>
 
-              {/* Anucios */}
+
+
+
+              {/* proximas aulas */}
+              
               <div className={styles.container_proxima_aula}>
                 <div className={styles.proximasAulas}>
                   <p className={styles.tipoDePublication}>Próximos</p>
 
-                  <div className={styles.cardProximasAulas}>
-                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
-                    <div>
-                      <p>O que é JavaScript?</p>
+                  {dataCurse.aulas.map((element, index) => (
+                    <div className={styles.cardProximasAulas}
+                    data-nome-aula={element.nomeAula} onClick={escolherAula}>
+                      {element.capa ? (
+                        <img src={element.capa} alt="Capa da aula" className={styles.imgProximaAula}/>
+                      ) : (
+                        <img src="/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
+                      )}
+                      
+                      <div>
+                        <p>{element.nomeAula}</p>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className={styles.cardProximasAulas}>
-                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
-                    <div>
-                      <p>
-                      Tipos de Dados, Strings, Números e Operações.</p>
-                    </div>
-                  </div>
-
-                  <div className={styles.cardProximasAulas}>
-                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
-                    <div>
-                      <p>Expressões Lógicas e Estruturas de Controle.</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
