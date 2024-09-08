@@ -1,0 +1,24 @@
+{
+    "nomeCurso" : "JavaScript DOM",
+    "professor" : {
+        "nomeProfessor" : "Isaac Nilton",
+        "descricaoProfesor" : "formado no intituto de capelinha"
+    },
+    "aulas" : {
+        "aula1" : {
+            "nomeAula" : "O que é JavaScript?",
+            "urlAula" : "https://",
+            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit. Ipsam tenetur temporibus expedita in illo beat."
+        },
+        "aula2" : {
+            "nomeAula" : "Tipos de Dados, Strings, Números e Operações.",
+            "urlAula" : "https://",
+            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo."
+        },
+        "aula3" : {
+            "nomeAula" : "Expressões Lógicas e Estruturas de Controle.",
+            "urlAula" : "https://",
+            "descricaoAula" : "10/01/22 : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa adipisicing elit."
+        }
+    }
+}

@@ -67,14 +67,14 @@ function PlayAula(props) {
                   <p className={styles.tipoDePublication}>Próximos</p>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
                       <p>O que é JavaScript?</p>
                     </div>
                   </div>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
                       <p>
                       Tipos de Dados, Strings, Números e Operações.</p>
@@ -82,7 +82,7 @@ function PlayAula(props) {
                   </div>
 
                   <div className={styles.cardProximasAulas}>
-                    <img src="../../../public/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
+                    <img src="https://t4.ftcdn.net/jpg/04/48/05/77/360_F_448057700_kIiPhMzOa2K0xAwxKAgyWpBLsEBGEZ2j.jpg" alt="Capa da aula" className={styles.imgProximaAula}/>
                     <div>
                       <p>Expressões Lógicas e Estruturas de Controle.</p>
                     </div>

@@ -13,9 +13,11 @@ function Header(props) {
 
   return (
     <header id={tema === 'Escuro' ? styles.temaDark : null}>
-        <i class="bi bi-arrows" id={styles.iconeAside} onClick={ocultarAside}></i>
+        <div className={styles.div_logo_icone}>
+          <i class="bi bi-arrows" id={styles.iconeAside} onClick={ocultarAside}></i>
+          <h1>Vortex</h1>
+        </div>
 
-        <h1>Vortex</h1>
         <ul>
           <li id={styles.discontrair}>
             <a href="/"><i class="bi bi-cup-hot-fill"></i></a>
