@@ -10,7 +10,6 @@ import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
 import { useEffect, useState } from 'react';
-import Admin from './components/aplicativo/pages/admin/admin';
 // import ChatPv from './components/aplicativo/pages/chat_pv/ChatPv';
 
 
@@ -118,10 +117,6 @@ export default function App() {
                                 {/* <Route path="/chatpv" element={
                                     < ChatPv tema={tema} />
                                 } /> */}
-
-                                <Route path="/admin" element={
-                                    < Admin />
-                                } />
                             </Routes>
                         </BrowserRouter>
                     </div>
