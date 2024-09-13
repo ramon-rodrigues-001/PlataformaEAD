@@ -8,6 +8,7 @@ const User = require('./models/user.js')
 const registerRouter = require('./routers/register');
 const loginRouter = require('./routers/login');
 const anotacaoRouter = require('./routers/anotacao')
+const cursosRouter = require('./routers/cursos')
 
 
  
@@ -24,6 +25,7 @@ app.use(cors());
 app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', anotacaoRouter)
+app.use('/', cursosRouter)
 
 // pegar dados do usuario atraves do ID (ligado ao arquivo perfil)
 app.post('/getUserDate', async (req, res) => {

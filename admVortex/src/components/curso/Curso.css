@@ -1,0 +1,31 @@
+.container_cards {
+    display: flex;
+    gap: 20px;
+    min-height: calc(100vh - 40px);
+    margin-left: 20px;
+}
+
+.container_cards a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 4em;
+}
+
+.curse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(81, 80, 80);
+    width: 220px;
+    height: 300px;
+    border-radius: 10px;
+    transition: .3s;
+    box-shadow: 4px 7px rgba(255, 255, 255, 0.151);
+    border: solid 1px white;
+}
+.curse:hover {
+    transform: translateY(-5px);
+    font-size: 1.1em;
+    box-shadow: 3px 8px 4px 4px rgba(255, 255, 255, 0.053);
+}

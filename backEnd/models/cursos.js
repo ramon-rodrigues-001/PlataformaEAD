@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
+// Definindo o schema do curso
 const cursoSchema = new mongoose.Schema({
     capaCurso: {
         type: String,
@@ -16,9 +17,9 @@ const cursoSchema = new mongoose.Schema({
     discricaoProfessor: {
         type: String
     }
-})
+});
 
-
+// Definindo o schema da aula
 const aulaSchema = new mongoose.Schema({
     capaAula: String,
     nomeAula: String,
@@ -27,3 +28,13 @@ const aulaSchema = new mongoose.Schema({
     destaque: String,
     cursoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Curso' }
 });
+
+// Criando os modelos
+const Curso = mongoose.model('Curso', cursoSchema);
+const Aula = mongoose.model('Aula', aulaSchema);
+
+// Exportando os modelos
+module.exports = {
+    Curso,
+    Aula
+};
