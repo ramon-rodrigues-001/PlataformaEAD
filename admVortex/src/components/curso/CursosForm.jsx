@@ -2,10 +2,28 @@ import "./Curso.css"
 
 function CursosForm() {
 
-    const criarCurso = async () => {
-        const response = await fetch('http://localhost:5173/api/addcursos', {
-            
-        })
+    const criarCurso = async (event) => {
+        event.preventDefault()
+
+        const nomeProfessor = event.target.inputNameProf.value;
+        const capaCurso = event.target.inputCapaCurso.value;
+        const nomeCurso = event.target.inputNomeCurso.value;
+        const descritionCurso = event.target.inputDescritionCurso.value;
+
+        const formData = {nomeProfessor, capaCurso, nomeCurso, descritionCurso}
+    
+        try {
+            const response = await fetch("http://localhost:4000/api/addcursos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+        } catch(err) {
+            console.log('Erro CursosForm.js : ' + err)
+        }
+
     }
 
     return (
