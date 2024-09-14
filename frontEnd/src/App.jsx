@@ -89,7 +89,7 @@ export default function App() {
                     <div className={styles.containerVitrineDaDireita}>
                         <BrowserRouter>
                             <Routes>
-                                <Route path="/" element={
+                                <Route path="/:id?" element={
                                     < PlayAula tema={tema}/>
                                 }/>
                                 
