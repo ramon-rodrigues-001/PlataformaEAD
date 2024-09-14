@@ -3,6 +3,7 @@ import Cursos from "./components/curso/cursos"
 import "./index.css"
 import CursosForm from './components/curso/CursosForm';
 import Aulas from './components/curso/Aula/Aulas';
+import AulasForm from './components/curso/Aula/AulasForm';
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
               }/>
               <Route path="/aulas/:id" element={
                   < Aulas />
+              }/>
+              <Route path="/aulas/newAula/:id" element={
+                  < AulasForm />
               }/>
             </Routes>
           </BrowserRouter>

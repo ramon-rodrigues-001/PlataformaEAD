@@ -34,6 +34,14 @@ function Cursos() {
         <p>Carregando...</p>
       ) : (
         <>
+          {/* Botão para adicionar um novo curso */}
+          <a href="curses/newCurse">
+            <div className="curse add-curse">
+              +
+            </div>
+          </a>
+
+
           {/* Renderiza os cursos obtidos do back-end */}
           {cursos.length > 0 ? (
             cursos.map((curso) => (
@@ -53,13 +61,6 @@ function Cursos() {
           )}
         </>
       )}
-
-      {/* Botão para adicionar um novo curso */}
-      <a href="curses/newCurse">
-        <div className="curse add-curse">
-          +
-        </div>
-      </a>
     </div>
   );
 }

@@ -37,15 +37,22 @@ function Aulas() {
         ) : (
           <>
             <div id="container_aulas">
-                <a href="#">
+                <a href={`/aulas/newAula/${id}`}>
                     <div className="aulas" id="criarCurso">
                         Criar aula
                     </div>
                 </a>
-                
-                <div className="aulas">
-                    Criar aula
-                </div>
+                {aulas.length > 0 ? (
+                    aulas.map((aula) => (
+                        <div className="aulas">
+                            {aula.nameAula} 
+                            <span className='lembrete'>{aula.lembrete}</span>
+                            <span className='lembrete'>{aula.assistido}</span>
+                        </div>
+                    ))) : (
+                        <p>Nenhum curso encontrado.</p>
+                    )
+                }
             </div>
              
             {/* Renderiza os cursos obtidos do back-end */}

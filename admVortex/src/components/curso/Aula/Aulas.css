@@ -20,3 +20,8 @@
 #criarCurso {
     text-align: center;
 }
+
+.lembrete {
+    color: rgba(255, 255, 255, 0.311);
+    padding: 0px 20px;
+}

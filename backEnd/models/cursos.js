@@ -25,15 +25,31 @@ const cursoSchema = new mongoose.Schema({
     aulas: []
 });
 
+
+
+
 // Definindo o schema da aula
 const aulaSchema = new mongoose.Schema({
-    capaAula: String,
-    nomeAula: String,
-    urlAula: String,
-    descricaoAula: String,
-    destaque: String,
-    cursoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Curso' }
+    nameAula: {
+        type: String,
+        required: true
+    },
+    capaAula: {
+        type: String
+    },
+    linkAula: {
+        type: String,
+        required: true
+    },
+    lembrete: {
+        type: String
+    },
+    descritionAula: {
+        type: String
+    },
 });
+
+
 
 // Criando os modelos
 const Curso = mongoose.model('Curso', cursoSchema);

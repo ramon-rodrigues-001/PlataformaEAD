@@ -1,5 +1,6 @@
 .container_cards {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     min-height: calc(100vh - 40px);
     margin-left: 20px;
@@ -43,7 +44,6 @@
     transform: translateY(-5px);
     box-shadow: 3px 8px 4px 4px rgba(255, 255, 255, 0.053);
 } */
-
 
 .curse {
     display: flex;
@@ -96,4 +96,12 @@
         box-shadow: 0px 10px 7px rgba(245, 245, 245, 0.059);
         transform: translateY(-10px);
     }
+}
+
+
+.add-curse {
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-weight: 400;
 }

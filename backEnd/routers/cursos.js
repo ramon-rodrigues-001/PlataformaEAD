@@ -1,4 +1,4 @@
-const { Curso } = require('../models/cursos')
+const { Curso, Aula } = require('../models/cursos')
 const express = require('express')
 const Router = express.Router()
 
@@ -11,8 +11,8 @@ Router.post('/api/addcursos', (req, res) => {
         })
         console.log(newCurso)
         newCurso.save()
-    } catch(eer) {
-        console.log("erro ao tentar salvar o curso : " + eer)
+    } catch(err) {
+        console.log("erro ao tentar salvar o curso : " + err)
     }
 })
 
@@ -26,6 +26,35 @@ Router.get('/api/getcursos', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar cursos' });
     }
 });
+
+
+
+// Adicionar Aulas ao curso X
+Router.post('/api/addaulas/:id', async (req, res) => { // Corrigido a rota
+    const { nameAula, capaAula, linkAula, lembrete, descritionAula } = req.body;
+    const { id } = req.params;
+
+    try {
+        const curso = await Curso.findById(id);
+        if (!curso) {
+            return res.status(404).json({ error: 'Curso não encontrado' });
+        }
+
+        // Cria a nova aula
+        const newAula = {
+            nameAula, capaAula, linkAula, lembrete, descritionAula
+        };
+
+        curso.aulas.push(newAula);
+        await curso.save();
+
+        res.status(200).json({ message: 'Aula adicionada com sucesso', curso });
+    } catch (err) {
+        console.error("Erro ao tentar salvar a aula: " + err);
+        res.status(500).json({ error: 'Erro ao salvar a aula' });
+    }
+});
+
 
 // Pegar Aulas do curso X
 Router.get('/api/getaulas/:id', async (req, res) => {
