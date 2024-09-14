@@ -37,11 +37,16 @@ function Cursos() {
           {/* Renderiza os cursos obtidos do back-end */}
           {cursos.length > 0 ? (
             cursos.map((curso) => (
-              <div key={curso._id} className="curse">
-                <h3>{curso.nomeCurso}</h3>
-                <p>{curso.nomeProfessor}</p>
-                <img src={curso.capaCurso} alt={curso.nomeCurso} className="curso_img" />
-              </div>
+              <a href={`aulas/${curso._id}`}>
+                <div key={curso._id} className="curse">
+                  <div className="textCard">
+                    <h2>{curso.nomeCurso}</h2>
+                    <p>{curso.nomeProfessor}</p>
+                  </div>
+                  
+                  <img src={curso.capaCurso} alt={curso.nomeCurso} className="curso_img" />
+                </div>
+              </a>
             ))
           ) : (
             <p>Nenhum curso encontrado.</p>

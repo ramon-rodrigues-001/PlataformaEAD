@@ -14,9 +14,15 @@ const cursoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    discricaoProfessor: {
-        type: String
-    }
+    detalheCurso: {
+        type: String,
+        required: true
+    },
+    descritionCurso: {
+        type: String,
+        required: true
+    },
+    aulas: []
 });
 
 // Definindo o schema da aula

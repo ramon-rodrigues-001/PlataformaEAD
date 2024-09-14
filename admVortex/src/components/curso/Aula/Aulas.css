@@ -1,0 +1,22 @@
+#container_aulas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(100vw - 400px);
+
+    a {
+        height: auto;
+    }
+    
+}
+
+.aulas {
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0.374);
+    padding: 10px;
+    width: 100%;
+}
+
+#criarCurso {
+    text-align: center;
+}

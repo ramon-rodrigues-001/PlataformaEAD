@@ -9,10 +9,11 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 4em;
+    /* font-size: 4em; */
+    height: 100%;
 }
 
-.curse {
+/* .curse {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,4 +42,58 @@
 .curse:hover {
     transform: translateY(-5px);
     box-shadow: 3px 8px 4px 4px rgba(255, 255, 255, 0.053);
+} */
+
+
+.curse {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    background-color: rgb(81, 80, 80);
+    color: white;
+    overflow: hidden;
+    box-shadow: 2px 5px 2px rgba(245, 245, 245, 0.11);
+    border: solid 2px rgba(255, 255, 255, 0.096);
+    min-width: 230px;
+    max-width: 235px;
+    height: 310px;
+    transition: .4s;
+
+    img {
+        position: absolute;
+        left: 50%;top: 50%;transform: translate(-50%, -50%);
+        width: 100%;
+        z-index: 0;
+    }
+    
+    .textCard {
+        background-color: rgba(0, 0, 0, 0.712);
+        border-radius: 30px 30px 0px 0px;
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        text-align: center;
+        height: 33%;
+        transition: .3s;
+
+        h2 {
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: .9em;
+            padding: 5px 0px;
+        }
+
+        &:hover {
+            height: 100%;
+            border-radius: 0;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px 10px 7px rgba(245, 245, 245, 0.059);
+        transform: translateY(-10px);
+    }
 }

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cursos from "./components/curso/cursos"
 import "./index.css"
 import CursosForm from './components/curso/CursosForm';
+import Aulas from './components/curso/Aula/Aulas';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
               }/>
               <Route path="/curses/newCurse" element={
                   < CursosForm />
+              }/>
+              <Route path="/aulas/:id" element={
+                  < Aulas />
               }/>
             </Routes>
           </BrowserRouter>
