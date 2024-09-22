@@ -1,24 +1,49 @@
+import { useParams } from "react-router-dom";
 import styles from "./PlayAula.module.scss"
-import dataCurse from "../../../../../dadosJson/cursos.json"
+import { useEffect, useState } from "react";
 
 function PlayAula(props) {
   const tema = props.tema
-  console.log(tema)
+  const [loading, setLoading] = useState(true);
+  const [curso, setCurso] = useState([])
+  const { id } = useParams();
 
+  const escolherAula = (event) => {
+    const escolha = event.currentTarget.dataset.nomeAula
+    console.log(escolha)
+  }
 
-    const escolherAula = (event) => {
-      const escolha = event.currentTarget.dataset.nomeAula
-      console.log(escolha)
+  const fetchCurso = async () => {
+    setLoading(false)
+
+    try {
+      const response = await fetch(`http://localhost:4000/api/getcurso/${id}`, {
+        method: 'GET',
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setCurso(data)
+      } else { 
+        console.error('Erro ao buscar cursos:', response.statusText);
+      }
+    } catch (err) {
+      console.error('Erro no fetch:', err);
     }
+  };
 
-
+  // Usa useEffect para buscar os cursos assim que o componente for montado
+  useEffect(() => {
+    fetchCurso();
+  }, []);
+  
+  if (loading) return <div>Carregando...</div>;
   return (
     <div className={styles.sectionPlayAula} id={tema === 'Escuro' ? styles.temaDark : null}>
         <div className={styles.background}>
           
             {/* Welcome */}
             <div className={styles.welcome}>
-              <h2>Você esta estudando :  {dataCurse.nomeCurso}</h2> 
+              <h2>Você esta estudando :  {curso.nomeCurso}</h2> 
             </div><br />
 
 
@@ -76,20 +101,30 @@ function PlayAula(props) {
                 <div className={styles.proximasAulas}>
                   <p className={styles.tipoDePublication}>Próximos</p>
 
-                  {dataCurse.cursos[0].aulas.map((element, index) => (
-                    <div className={styles.cardProximasAulas}
-                    data-nome-aula={element.nomeAula} onClick={escolherAula}>
-                      {element.capaAula ? (
-                        <img src={element.capaAula} alt="Capa da aula" className={styles.imgProximaAula}/>
-                      ) : (
-                        <img src="/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
-                      )}
-                      
-                      <div>
-                        <p>{element.nomeAula}</p>
+                  
+
+
+                  {curso && curso.aulas && curso.aulas.length > 0 ? (
+                    curso.aulas.map((aula) => (
+                      <div className={styles.cardProximasAulas}
+                      data-nome-aula={aula.nomeAula} onClick={escolherAula}>
+                        {aula.capaAula ? (
+                          <img src={aula.capaAula} alt="Capa da aula" className={styles.imgProximaAula}/>
+                        ) : (
+                          <img src="/iconeDeCursoIA2.webp" alt="Capa da aula" className={styles.imgProximaAula}/>
+                        )}
+
+                        <div>
+                          <p>{aula.nameAula}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p>Nenhuma aula disponível</p> // Exibe mensagem se não houver aulas
+                  )}
+
+
+
                 </div>
               </div>
 

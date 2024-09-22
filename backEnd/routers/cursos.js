@@ -16,7 +16,7 @@ Router.post('/api/addcursos', (req, res) => {
     }
 })
 
-// Pegar cursos
+// Pegar todos os cursos
 Router.get('/api/getcursos', async (req, res) => {
     try {
         const cursos = await Curso.find();
@@ -26,6 +26,20 @@ Router.get('/api/getcursos', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar cursos' });
     }
 });
+
+// Pegar apenas um curso
+Router.get('/api/getcurso/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const curso = await Curso.findById(id);
+        res.json(curso); 
+    } catch (err) {
+        console.error('Erro ao buscar cursos:', err);
+        res.status(500).json({ error: 'Erro ao buscar cursos' });
+    }
+});
+
 
 
 

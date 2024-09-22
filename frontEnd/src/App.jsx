@@ -16,7 +16,6 @@ import { useEffect, useState } from 'react';
 export default function App() {
     let temaSalvo = localStorage.getItem('temaAtual');
     const [tema, setTema] = useState(temaSalvo)
-    const [loading, setLoading] = useState(true)
 
 
     // SISTEMA DE MUDAR TEMA ESCURO/CLARO
@@ -45,39 +44,8 @@ export default function App() {
         }
     }
 
-
-
-    //======= SISTEMA DE PRE-LOAD-LOADING =======
-    useEffect(() => {
-        const timeoutId = setTimeout(() => {
-          setLoading(false);
-        }, 1800);
-    
-        return () => clearTimeout(timeoutId);
-      }, []);
-
-
     return (
         <>
-        {/* ANIMAÇÃO DE PRE-LOADING */}
-        {/* {loading ? (
-            <div className={styles.preload}>
-                <div className={styles.cube}>
-                <div className={styles.top}></div>
-                <span style={{ '--i': 0 }}></span>
-                <span style={{ '--i': 1 }}></span>
-                <span style={{ '--i': 2 }}></span>
-                <span style={{ '--i': 3 }}></span>
-                </div>
-            </div>
-        ) : ( */}
-            {/* // ROTAS E PAGINAS */}
-            
-        {/* )} */}
-
-
-
-
         <div className={styles.container} id={tema === 'Escuro' ? styles.containerDark : null}>
                 < Header mudarTema={mudarTema} tema={tema} ocultarAside={ocultarAside}/>
 
