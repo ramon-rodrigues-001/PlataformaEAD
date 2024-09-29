@@ -2,6 +2,7 @@ const { Curso, Aula } = require('../models/cursos')
 const express = require('express')
 const Router = express.Router()
 
+// CRIAR CURSO
 Router.post('/api/addcursos', (req, res) => {
     const {capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso} = req.body
     
@@ -16,7 +17,7 @@ Router.post('/api/addcursos', (req, res) => {
     }
 })
 
-// Pegar todos os cursos
+// PEGAR TODOS OS CURSOS
 Router.get('/api/getcursos', async (req, res) => {
     try {
         const cursos = await Curso.find();
@@ -27,7 +28,7 @@ Router.get('/api/getcursos', async (req, res) => {
     }
 });
 
-// Pegar apenas um curso
+// PEGAR APENAS UM CURSO
 Router.get('/api/getcurso/:id', async (req, res) => {
     const { id } = req.params;
 
@@ -43,7 +44,10 @@ Router.get('/api/getcurso/:id', async (req, res) => {
 
 
 
-// Adicionar Aulas ao curso X
+
+
+
+// ADICIONAR AULA AO CURSO X
 Router.post('/api/addaulas/:id', async (req, res) => { // Corrigido a rota
     const { nameAula, capaAula, linkAula, lembrete, descritionAula } = req.body;
     const { id } = req.params;
@@ -70,7 +74,7 @@ Router.post('/api/addaulas/:id', async (req, res) => { // Corrigido a rota
 });
 
 
-// Pegar Aulas do curso X
+// PEGAR TODAS AS AULAS DO CURSO X
 Router.get('/api/getaulas/:id', async (req, res) => {
     const { id } = req.params; // Pega o ID da URL
 
@@ -83,6 +87,29 @@ Router.get('/api/getaulas/:id', async (req, res) => {
     } catch (err) {
         console.error('Erro ao buscar aulas:', err);
         res.status(500).json({ error: 'Erro ao buscar aulas' });
+    }
+});
+
+
+// PEGAR APENAS UMA AULA DO CURSO X
+Router.get('/api/getaula/:cursoId/:aulaId', async (req, res) => {
+    const { cursoId, aulaId } = req.params; // Pega o ID da URL
+
+    try {
+        const curso = await Curso.findById(cursoId); // Busca o curso pelo ID
+        if (!curso) {
+            return res.status(404).json({ error: 'Curso não encontrado' }); // Retorna erro se o curso não for encontrado
+        }
+
+        const aula = await curso.aulas.id(aulaId)
+        if (!aula) {
+            return res.status(404).json({ error: 'Aula não encontrada' }); // Retorna erro se a aula não for encontrada
+        }
+
+        res.json(aula);
+    } catch (err) {
+        console.error('Erro ao buscar aula:', err);
+        res.status(500).json({ error: 'Erro ao buscar aula' });
     }
 });
 

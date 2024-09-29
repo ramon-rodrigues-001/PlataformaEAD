@@ -6,13 +6,33 @@ function PlayAula(props) {
   const tema = props.tema
   const [loading, setLoading] = useState(true);
   const [curso, setCurso] = useState([])
+  const [aula, setAula] = useState('')
   const { id } = useParams();
 
-  const escolherAula = (event) => {
-    const escolha = event.currentTarget.dataset.nomeAula
-    console.log(escolha)
+
+
+  // pegar a aulas que ecolheu assistir
+  const escolherAula = async (event) => {
+    const aulaid = event.currentTarget.dataset.idAula
+
+    try {
+      const response = await fetch(`http://localhost:4000/api/getaula/${id}/${aulaid}`, {
+        method: 'GET',
+      })
+      if (response.status !== '404') {
+        const data = await response.json();
+        setAula(data)
+      } else { 
+        console.error('Erro ao buscar aula:')
+      }
+    } catch (erro) {
+      console.error('Erro no fetch:', erro);
+    }
   }
 
+
+
+  // Pegar o curso que foi escolhido
   const fetchCurso = async () => {
     setLoading(false)
 
@@ -36,24 +56,42 @@ function PlayAula(props) {
     fetchCurso();
   }, []);
   
-  if (loading) return <div>Carregando...</div>;
+
+
+  // retornar o iframe com a url auterado dinamicamente
+  const VimeoPlayer = ({ videoId }) => {
+    // Constrói a URL do vídeo de forma dinâmica
+    const vimeoUrl = `https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479`;
+  
+    return (
+      <iframe
+        src={vimeoUrl}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        frameBorder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+        title="Vimeo Video"
+        className={styles.videoAula}
+      ></iframe>
+    );
+  };
+
+
+  if (loading) return <div>Carregando...</div>; // Esperar o codigo compilar
   return (
     <div className={styles.sectionPlayAula} id={tema === 'Escuro' ? styles.temaDark : null}>
         <div className={styles.background}>
           
             {/* Welcome */}
             <div className={styles.welcome}>
-              <h2>Você esta estudando :  {curso.nomeCurso}</h2> 
+              <h2>{curso.nomeCurso}</h2> 
             </div><br />
 
 
-
-
-            {/* Container de posts */}
+            {/* Container de assistir Aula */}
             <div className={styles.container_De_Aula}>
               <div>
                 <div className={styles.aula}>
-                  <p className={styles.tipoDePublication}>Especial</p>
+                  <p className={styles.tipoDePublication}>{aula.lembrete}</p>
                   <div className={styles.perfilDoProfessor}>
                     <div className={styles.imgDoProfessor}></div>
                     <div>
@@ -62,17 +100,13 @@ function PlayAula(props) {
                     </div>
                   </div>
                   <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-                    <iframe
-                      src="https://player.vimeo.com/video/1004536548?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                      title="Teste" className={styles.videoAula}
-                    ></iframe>
+                    <VimeoPlayer videoId={aula.linkAula} />
                   </div>
                 </div>
 
 
+
+                {/* Discrição */}
                 <div className={styles.aula}>
                   <div className={styles.perfilDoPublicador}>
                     <div className={styles.imgDePerfil}></div>
@@ -101,13 +135,11 @@ function PlayAula(props) {
                 <div className={styles.proximasAulas}>
                   <p className={styles.tipoDePublication}>Próximos</p>
 
-                  
-
 
                   {curso && curso.aulas && curso.aulas.length > 0 ? (
                     curso.aulas.map((aula) => (
                       <div className={styles.cardProximasAulas}
-                      data-nome-aula={aula.nomeAula} onClick={escolherAula}>
+                      data-id-aula={aula._id} onClick={escolherAula}>
                         {aula.capaAula ? (
                           <img src={aula.capaAula} alt="Capa da aula" className={styles.imgProximaAula}/>
                         ) : (

@@ -22,8 +22,30 @@ const cursoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    aulas: []
+    aulas: [
+        {
+            nameAula: {
+                type: String,
+                required: true
+            },
+            capaAula: {
+                type: String
+            },
+            linkAula: {
+                type: String,
+                required: true
+            },
+            lembrete: {
+                type: String
+            },
+            descritionAula: {
+                type: String
+            }
+        }
+    ]
 });
+
+module.exports = mongoose.model('Curso', cursoSchema);
 
 
 
