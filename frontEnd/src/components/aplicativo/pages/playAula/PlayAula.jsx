@@ -58,23 +58,6 @@ function PlayAula(props) {
   
 
 
-  // retornar o iframe com a url auterado dinamicamente
-  const VimeoPlayer = ({ videoId }) => {
-    // Constrói a URL do vídeo de forma dinâmica
-    const vimeoUrl = `https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479`;
-  
-    return (
-      <iframe
-        src={vimeoUrl}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-        frameBorder="0"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-        title="Vimeo Video"
-        className={styles.videoAula}
-      ></iframe>
-    );
-  };
-
 
   if (loading) return <div>Carregando...</div>; // Esperar o codigo compilar
   return (
@@ -99,8 +82,16 @@ function PlayAula(props) {
                       <p className={styles.nomeDoProfessor}>Ramon Rodrigues</p>
                     </div>
                   </div>
-                  <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-                    <VimeoPlayer videoId={aula.linkAula} />
+                  <div style={{ padding: '0 0 56.25% 0' }}>
+                    {/* <VimeoPlayer videoId={aula.linkAula} /> */}
+                    <iframe
+                      src={"https://player.vimeo.com/video/"+ aula.linkAula +"?badge=0&autopause=0&player_id=0&app_id=58479"}
+                      style={{ position: 'absolute', top: 40, left: '50%', width: '91%', height: '100%', transform: 'translateX(-50%)' }}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                      title="Vimeo Video"
+                      id={styles.videoAula}
+                    ></iframe>
                   </div>
                 </div>
 
