@@ -83,7 +83,6 @@ function PlayAula(props) {
                     </div>
                   </div>
                   <div style={{ padding: '0 0 56.25% 0' }}>
-                    {/* <VimeoPlayer videoId={aula.linkAula} /> */}
                     <iframe
                       src={"https://player.vimeo.com/video/"+ aula.linkAula +"?badge=0&autopause=0&player_id=0&app_id=58479"}
                       style={{ position: 'absolute', top: 40, left: '50%', width: '91%', height: '100%', transform: 'translateX(-50%)' }}
@@ -98,21 +97,14 @@ function PlayAula(props) {
 
 
                 {/* Discrição */}
+                {/* Que gambiarra! Por algum motivo — creio eu que seja pelo arquivo de estilo do Vimeo —, meu estilo está sendo sobreposto. O elemento abaixo está sustentando a responsividade da página. */}
                 <div className={styles.aula}>
-                  <div className={styles.perfilDoPublicador}>
-                    <div className={styles.imgDePerfil}></div>
-                    <div>
-                      <p className={styles.nomeDoUsuario}>Ramon Rodrigues</p>
-                      <p className={styles.dataDePublication}>10/01/22</p>
+                  <div id={styles.descrition}>
+                    <div className={styles.d}>
+                    Você está assistindo à aula: <span className={styles.destaqueTexto}>{aula.nameAula}</span>, criada pelo professor <span className={styles.destaqueTexto}>{curso.nomeProfessor}</span> da Vortex, sua escola EAD dedicada ao desenvolvimento da sua carreira. <br /> <br />
+                      {aula.descritionAula}
                     </div>
-                  </div>
-                  <div className={styles.descrition}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam tenetur temporibus expedita in illo beatae dignissimos nulla adipisci fugiat, praesentium ipsa, 
-                  </div>
-                  <img src="/logo-2.png" alt="background-home" className={styles.img_background}/>
-                  <div className={styles.curtidas}>
-                    <span><i class="bi bi-hand-thumbs-up"></i> 16</span>
-                    <span><i class="bi bi-hand-thumbs-down"></i> 3</span>
+                    
                   </div>
                 </div>
               </div>
