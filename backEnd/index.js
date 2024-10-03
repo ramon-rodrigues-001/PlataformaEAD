@@ -53,8 +53,26 @@ mongoose.connect(mongoURI, {
     const PORT = process.env.PORT || 4000;
     server.listen(PORT, () => {
         console.log(`Servidor rodando na porta ${PORT}`);
-    });   
+    });
 })
 .catch((err) => {
     console.error('Erro ao conectar ao MongoDB:', err);
 });
+
+
+
+// conectando a API do hotmart
+// de alguma forma eu vou fazer uma integração lá com a hotmart, mesmo não consequindo imaginar como isso é feito
+app.post('/webhook', (req, res) => {
+    const hmTokem = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110'
+    const hmReceivedTokem = req.headers('x-hotmart-hottok')
+
+    if (hmReceivedTokem === hmTokem) {
+        const data = req.body
+        console.log('Dados recebidos...', data)
+        res.status(200).send('Recebido')
+    }
+    else {
+        res.status(401).send('Não altorizado...')
+    }
+})
