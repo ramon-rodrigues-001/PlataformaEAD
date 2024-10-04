@@ -72,13 +72,9 @@ app.post('/webhook', (req, res) => {
     if (hmReceivedToken === hmToken) {
         const data = req.body;
         
-        // Aqui você pode processar os dados recebidos. Exemplo:
-        if (data.event === "PURCHASE_APPROVED") {
-            const buyer = data.data.transaction.buyer;
-            console.log(`Compra aprovada! Cliente: ${buyer.name}, Email: ${buyer.email}`);
+        const buyer = data.data.buyer;
+        console.log(`Compra aprovada! Cliente: ${buyer.name}, Email: ${buyer.email}`);
             
-            // Adicionar lógica para liberar o curso para o usuário aqui
-        }
         
         res.status(200).send('Recebido');
     } else {
