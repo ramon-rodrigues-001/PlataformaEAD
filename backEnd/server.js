@@ -64,16 +64,25 @@ mongoose.connect(mongoURI, {
 // conectando a API do hotmart
 // de alguma forma eu vou fazer uma integração lá com a hotmart, mesmo não consequindo imaginar como isso é feito
 app.post('/webhook', (req, res) => {
-    const hmTokem = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110'
-    const hmReceivedTokem = req.headers('x-hotmart-hottok')
-    console.log("check")
+    const hmToken = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110'; // Token correto da Hotmart
+    const hmReceivedToken = req.headers['x-hotmart-hottok']; // Cabeçalho correto
+    console.log("Webhook received, checking token...");
 
-    if (hmReceivedTokem === hmTokem) {
-        const data = req.body
-        console.log('Dados recebidos...', data)
-        res.status(200).send('Recebido')
+    // Validar o token recebido
+    if (hmReceivedToken === hmToken) {
+        const data = req.body;
+        
+        // Aqui você pode processar os dados recebidos. Exemplo:
+        if (data.event === "PURCHASE_APPROVED") {
+            const buyer = data.data.transaction.buyer;
+            console.log(`Compra aprovada! Cliente: ${buyer.name}, Email: ${buyer.email}`);
+            
+            // Adicionar lógica para liberar o curso para o usuário aqui
+        }
+        
+        res.status(200).send('Recebido');
+    } else {
+        console.log('Token inválido. Webhook não autorizado.');
+        res.status(401).send('Não autorizado...');
     }
-    else {
-        res.status(401).send('Não altorizado...')
-    }
-})
+});
