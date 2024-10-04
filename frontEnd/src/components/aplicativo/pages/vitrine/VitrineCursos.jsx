@@ -8,7 +8,7 @@ function VitrineCursos() {
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
     try {
-      const response = await fetch('https://plataformaead-2.onrender.com/api/getcursos', {
+      const response = await fetch('http://localhost:4000/api/getcursos', {
         method: 'GET',
       });
       if (response.ok) {
@@ -39,7 +39,7 @@ function VitrineCursos() {
           </div>
 
           <div className={styles.center_button}>
-            <a href='#'>
+            <a href='/assistir'>
               <img src="https://images.freeimages.com/fic/images/icons/2711/free_icons_for_windows8_metro/512/play.png" alt="" />
             </a>  
           </div>
@@ -57,7 +57,7 @@ function VitrineCursos() {
           <div className={styles.containerDeCardsDeCursos}>
                {cursos.length > 0 ? (
                   cursos.map((curso) => (
-                    <a href={`${curso._id}`}>
+                    <a href={`assistir/${curso._id}`}>
                       <div className={styles.cardDeCurso}>
                         <img src={curso.capaCurso} alt="Capa do curso" />
 

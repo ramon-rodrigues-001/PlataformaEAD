@@ -61,6 +61,12 @@ mongoose.connect(mongoURI, {
 
 
 
+
+
+
+
+
+
 // conectando a API do hotmart
 // de alguma forma eu vou fazer uma integração lá com a hotmart, mesmo não consequindo imaginar como isso é feito
 app.post('/webhook', (req, res) => {
@@ -82,3 +88,33 @@ app.post('/webhook', (req, res) => {
         res.status(401).send('Não autorizado...');
     }
 });
+
+
+
+
+// app.post('/webhook', (req, res) => {
+//     const hmToken = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110';
+//     const hmReceivedToken = req.headers['x-hotmart-hottok'];
+
+//     if (hmReceivedToken === hmToken) {
+//         const data = req.body;
+        
+//         if (data.event === "PURCHASE_APPROVED") {
+//             const buyerEmail = data.data.transaction.buyer.email;
+
+//             // Encontrar o usuário e liberar o curso
+//             User.findOneAndUpdate({ email: buyerEmail }, { courseAccess: true }, (err, user) => {
+//                 if (err || !user) {
+//                     console.log("Usuário não encontrado ou erro ao liberar o curso.");
+//                     return res.status(500).send("Erro interno.");
+//                 }
+//                 console.log("Acesso ao curso liberado para:", buyerEmail);
+//                 res.status(200).send('Acesso liberado.');
+//             });
+//         } else {
+//             res.status(200).send('Evento não tratado.');
+//         }
+//     } else {
+//         res.status(401).send('Não autorizado...');
+//     }
+// });

@@ -12,7 +12,7 @@ function Aside(props) {
 
     if (nota) {
       try {
-        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
+        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ function Aside(props) {
   useEffect(() => {
     const fetchNotas = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
+        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
           method: 'POST'
         });
         if (!response.ok) {

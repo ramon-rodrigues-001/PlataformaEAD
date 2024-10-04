@@ -23,7 +23,7 @@ function Header(props) {
             <a href="/"><i class="bi bi-cup-hot-fill"></i></a>
           </li>
           <li id={styles.batePapo}>
-            <a href="/batePapo"><i class="bi bi-people-fill"></i></a>
+            <a href="/assistir"><i class="bi bi-collection-play-fill"></i></a>
           </li>
           <li id={styles.noticias}>
             <a href="/noticias"><i class="bi bi-newspaper"></i></a>
