@@ -8,7 +8,7 @@ function VitrineCursos() {
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/getcursos', {
+      const response = await fetch('https://plataformaead-2.onrender.com/api/getcursos', {
         method: 'GET',
       });
       if (response.ok) {

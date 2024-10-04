@@ -5,10 +5,10 @@ const cors = require('cors');
 const User = require('./models/user.js')
 
 
-const registerRouter = require('./routers/register');
-const loginRouter = require('./routers/login');
-const anotacaoRouter = require('./routers/anotacao')
-const cursosRouter = require('./routers/cursos')
+const registerRouter = require('./routers/register.js');
+const loginRouter = require('./routers/login.js');
+const anotacaoRouter = require('./routers/anotacao.js')
+const cursosRouter = require('./routers/cursos.js')
 
 
  
@@ -66,6 +66,7 @@ mongoose.connect(mongoURI, {
 app.post('/webhook', (req, res) => {
     const hmTokem = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110'
     const hmReceivedTokem = req.headers('x-hotmart-hottok')
+    console.log("check")
 
     if (hmReceivedTokem === hmTokem) {
         const data = req.body
