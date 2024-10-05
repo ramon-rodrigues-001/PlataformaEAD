@@ -11,16 +11,17 @@ function Aside(props) {
   
   // Criar nova anotação
   const newNota = async () => {
-    const nota = prompt('Título da nota:');
+    const tituloAnotation = prompt('Título da nota:');
+    const descritionAnotation = prompt('Discrição da nota:');
 
-    if (nota) {
+    if (tituloAnotation) {
       try {
         const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ nota })
+          body: JSON.stringify({ tituloAnotation, descritionAnotation })
         });
 
         if (!response.ok) {
@@ -80,7 +81,7 @@ function Aside(props) {
   return (
     <div className={styles.aside} id={taDentroDoMenu && styles.dentroDoMenu} >
       {/* onLoad={creatNota} */}
-      <h2>Anotações</h2>
+      {/* <h2>Anotações</h2> */}
 
       <div className={styles.containerInputPrucurarPorAnotacao}>
         <i className="bi bi-search" id={styles.iconeLupa}></i>
@@ -88,26 +89,22 @@ function Aside(props) {
       </div>
 
       <button className={styles.buttonAdicionarNovaAnotacao} onClick={newNota}>
-        <i className="bi bi-plus-lg"></i> Criar nota
+        <i className="bi bi-plus-lg"></i> Criar anotação
       </button>
 
       <div className='containerDeAnotacao'>
-        
-      {anotacao && anotacao.length > 0 ? (
-        anotacao.map((element, index) => (
-          <a href={`/pageanotacao`} className={styles.cardsAnotacao} key={index}>
-            <p>{element}</p>
-            <div className={styles.informationsAnotacao}>
-              <i className="bi bi-pencil-fill" onClick={mudarNome}></i>
-            </div>
-          </a>
-        ))
-      ) : (
-        <p>Você ainda não possui anotações.</p>
-      )}
-
-        
-        <p className={styles.avisoDeAnotacao}>Faça login para ter acesso as anotações</p>
+        {anotacao && anotacao.length > 0 ? (
+          anotacao.map((element, index) => (
+            <a href={`/pageanotacao/${element._id}`} className={styles.cardsAnotacao} key={index}>
+              <p>{element.tituloAnotation}</p>
+              <div className={styles.informationsAnotacao}>
+                <i className="bi bi-pencil-fill" onClick={mudarNome}></i>
+              </div>
+            </a>
+          ))
+        ) : (
+          <p className={styles.avisoDeAnotacao}>Você ainda não possui anotações.</p>
+        )}
       </div>
     </div>
   );

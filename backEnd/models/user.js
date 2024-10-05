@@ -30,7 +30,13 @@ const userSchema = new mongoose.Schema({
 
     anotacoes: [
         {
-            type: String
+            tituloAnotation: {
+                required: true,
+                type: String
+            },
+            descritionAnotation: {
+                type: String
+            }
         }
     ]
 });

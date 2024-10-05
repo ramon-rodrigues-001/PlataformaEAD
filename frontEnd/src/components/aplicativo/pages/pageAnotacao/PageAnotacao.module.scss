@@ -1,0 +1,29 @@
+.containerAnotacaoCompleta {
+    min-height: 90vh;
+
+    .headerAnotacao {
+        position: relative;
+    }
+
+    h2 {
+        background-color: rgba(0, 0, 0, 0.427);
+        padding: 20px;
+    }
+    p {
+        border: solid 1px rgba(255, 255, 255, 0.167);
+        background-color: rgba(0, 0, 0, 0.084);
+        padding: 20px;
+    }
+    h3 {
+        font-size: 1.5em;
+        position: absolute;
+        top: 30%;
+        right: 15px;
+        transform: translateX(-50%);
+        transition: .3s;
+
+        &:hover {
+            scale: 1.1;
+        }
+    }
+}

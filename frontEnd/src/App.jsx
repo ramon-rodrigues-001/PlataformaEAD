@@ -82,7 +82,7 @@ export default function App() {
                                 } />
 
 
-                                <Route path="/pageanotacao" element={
+                                <Route path="/pageanotacao/:idAnotacao" element={
                                     < PageAnotacao />
                                 } />
                             </Routes>
