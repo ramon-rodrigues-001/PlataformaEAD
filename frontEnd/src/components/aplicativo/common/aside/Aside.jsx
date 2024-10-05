@@ -1,18 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Aside.module.scss";
 
 function Aside(props) {
   const taDentroDoMenu = props.taDentroDoMenu;
+  const [ anotacao, setAnotacao ] = useState(null)
   
   // Pegando o id do usuario
   const userId = localStorage.getItem('userID')
 
+  
+  // Criar nova anotação
   const newNota = async () => {
     const nota = prompt('Título da nota:');
 
     if (nota) {
       try {
-        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
+        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -26,7 +29,9 @@ function Aside(props) {
 
         const data = await response.json();
         console.log(data.usuario.anotacoes)
-        creatNota(data.usuario.anotacoes);
+        setAnotacao(data.usuario.anotacoes)
+
+        // creatNota(data.usuario.anotacoes);
       } catch (error) {
         console.error('Erro ao adicionar anotação:', error);
       }
@@ -38,7 +43,7 @@ function Aside(props) {
   useEffect(() => {
     const fetchNotas = async () => {
       try {
-        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
+        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
           method: 'POST'
         });
         if (!response.ok) {
@@ -46,7 +51,8 @@ function Aside(props) {
         }
 
         const data = await response.json();
-        creatNota(data.usuario.anotacoes);
+        setAnotacao(data.usuario.anotacoes)
+        // creatNota(data.usuario.anotacoes);
       } catch (error) {
         console.error('Erro ao carregar anotações:', error);
       }
@@ -55,32 +61,8 @@ function Aside(props) {
     fetchNotas();
   }, [userId]);
   
-  // Crear elemento no html
-  const creatNota = (allNotas) => {
-    const containerDeAnotacao = document.querySelector('.containerDeAnotacao');
-    containerDeAnotacao.innerHTML = ''
 
-    allNotas.forEach(nota => {
-      const cardsAnotacoe = document.createElement('div');
-      cardsAnotacoe.className = styles.cardsAnotacao;
 
-      const nome = document.createElement('p');
-      nome.innerHTML = nota;
-
-      const informationsAmigo = document.createElement('div');
-      informationsAmigo.className = styles.informationsAnotacao;
-
-      const iconeLapis = document.createElement('i');
-      iconeLapis.className = "bi bi-pencil-fill";
-      iconeLapis.addEventListener('click', mudarNome);
-
-      informationsAmigo.appendChild(iconeLapis);
-      cardsAnotacoe.appendChild(nome);
-      cardsAnotacoe.appendChild(informationsAmigo);
-
-      containerDeAnotacao.appendChild(cardsAnotacoe);
-    });
-  };
 
 
   const mudarNome = (event) => {
@@ -94,8 +76,10 @@ function Aside(props) {
   };
 
 
+
   return (
-    <div className={styles.aside} id={taDentroDoMenu && styles.dentroDoMenu} onLoad={creatNota}>
+    <div className={styles.aside} id={taDentroDoMenu && styles.dentroDoMenu} >
+      {/* onLoad={creatNota} */}
       <h2>Anotações</h2>
 
       <div className={styles.containerInputPrucurarPorAnotacao}>
@@ -108,13 +92,21 @@ function Aside(props) {
       </button>
 
       <div className='containerDeAnotacao'>
-        {/* <a href="/chatpv" className={styles.cardsAnotacao}>
-          <p>Arry Function</p>
-          <div className={styles.informationsAmigo}>
-            <i className="bi bi-pencil-fill" onClick={mudarNome}></i>
-            <i className="bi bi-trash3-fill"></i>
-          </div>
-        </a> */}
+        
+      {anotacao && anotacao.length > 0 ? (
+        anotacao.map((element, index) => (
+          <a href={`/pageanotacao`} className={styles.cardsAnotacao} key={index}>
+            <p>{element}</p>
+            <div className={styles.informationsAnotacao}>
+              <i className="bi bi-pencil-fill" onClick={mudarNome}></i>
+            </div>
+          </a>
+        ))
+      ) : (
+        <p>Você ainda não possui anotações.</p>
+      )}
+
+        
         <p className={styles.avisoDeAnotacao}>Faça login para ter acesso as anotações</p>
       </div>
     </div>

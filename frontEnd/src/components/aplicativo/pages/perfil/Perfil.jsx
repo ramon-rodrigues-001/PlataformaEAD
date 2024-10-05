@@ -34,7 +34,7 @@ function Perfil() {
             }
         
             try {
-                const response = await fetch(`https://plataformaead-2.onrender.com/getUserDate`, {
+                const response = await fetch(`http://localhost:4000/getUserDate`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

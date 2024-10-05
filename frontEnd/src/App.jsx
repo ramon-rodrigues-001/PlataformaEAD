@@ -10,7 +10,7 @@ import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
 import { useEffect, useState } from 'react';
-// import ChatPv from './components/aplicativo/pages/chat_pv/ChatPv';
+import PageAnotacao from './components/aplicativo/pages/pageAnotacao/pageAnotacao';
 
 
 export default function App() {
@@ -82,9 +82,9 @@ export default function App() {
                                 } />
 
 
-                                {/* <Route path="/chatpv" element={
-                                    < ChatPv tema={tema} />
-                                } /> */}
+                                <Route path="/pageanotacao" element={
+                                    < PageAnotacao />
+                                } />
                             </Routes>
                         </BrowserRouter>
                     </div>
