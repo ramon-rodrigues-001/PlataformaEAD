@@ -90,13 +90,13 @@
             gap: 10px;
             padding-left: 10px;
 
-            .spanOffOn {
-                display: inline-block;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background-color: red;
-            }
+            // .spanOffOn {
+            //     display: inline-block;
+            //     width: 10px;
+            //     height: 10px;
+            //     border-radius: 50%;
+            //     background-color: red;
+            // }
 
             i {
                 padding: 0px 3px;
@@ -135,5 +135,14 @@
     }
     &::-webkit-scrollbar-thumb {
         background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+
+@media screen and (max-width: 750px) {
+    .aside {
+        // box-shadow: 10px 10px 100px 70px rgba(0, 0, 0, 0.276);
+        box-shadow: 100px 10px 100px 1000px rgba(0, 0, 0, 0.619);
     }
 }

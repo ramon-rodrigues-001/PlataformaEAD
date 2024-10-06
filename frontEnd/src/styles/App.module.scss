@@ -53,6 +53,8 @@
   
       .containerAsideDaEsquerda {
         display: none ;
+        position: absolute;
+        z-index: 9;
       }
     }
   }
