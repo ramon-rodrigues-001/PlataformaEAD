@@ -35,7 +35,7 @@ function VitrineCursos() {
       <div className={styles.navbar}>
           <div className={styles.nav_item}>
             <i class="bi bi-plus-square-dotted"></i>
-            Seus Cursos
+            Meus Cursos
           </div>
 
           <div className={styles.center_button}>
@@ -55,6 +55,7 @@ function VitrineCursos() {
           <p>Carregando...</p>
         ) : (
           <div className={styles.containerDeCardsDeCursos}>
+                {/* <p>JavaScript Avançado</p> */}
                {cursos.length > 0 ? (
                   cursos.map((curso) => (
                     <a href={`assistir/${curso._id}`}>
