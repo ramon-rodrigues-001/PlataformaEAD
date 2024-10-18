@@ -34,8 +34,8 @@ function VitrineCursos() {
     <section className={styles.SectionVitrineCursos}>
       <div className={styles.navbar}>
           <div className={styles.nav_item}>
-            <i class="bi bi-plus-square-dotted"></i>
-            Meus Cursos
+            {/* <i class="bi bi-plus-square-dotted"></i> */}
+            Todos Cursos
           </div>
 
           <div className={styles.center_button}>
@@ -45,8 +45,8 @@ function VitrineCursos() {
           </div>
 
           <div className={styles.nav_item} id={styles.direita}>
-            <i class="bi bi-plus-lg"></i>
-            Descobrir
+            {/* <i class="bi bi-plus-lg"></i> */}
+            Meus Cursos
           </div>
       </div>
 
@@ -82,24 +82,51 @@ function VitrineCursos() {
       <br />
 
 
-      
+      <h3 className={styles.titleGrupoCurso}>FUNDAMENTOS (FULL-STACK)</h3>
       <div className={styles.containerDeCardsDeCursos}>
         <div className={styles.cardDeCurso}>
+          <span className={styles.simboloPrivado}>
+            <i class="bi bi-lock"></i> 
+            Privado
+          </span>
+
           <img src="https://i.pinimg.com/originals/ab/5d/55/ab5d5545f0f0ae703a77c023074edc34.jpg" alt="" />
           
           <div className={styles.textCard}>
               <h2>JAVASCRIPT AVANÇADO</h2>
               <p>[ Fundamentos II ]</p>
               <p className={styles.discritionCurso}>"Este não é para os fracos; espero que tenha praticado com o módulo anterior."</p>
+              <p>
+                23 aulas <br />
+                4h 22 min
+              </p>
+              <p>
+                <i class="bi bi-lock"></i>  
+                Privado
+              </p>
           </div>
         </div>
+
         <div className={styles.cardDeCurso}>
+          <span className={styles.simboloPrivado}>
+            <i class="bi bi-unlock"></i> 
+            Liberado
+          </span>
+
           <img src="https://w0.peakpx.com/wallpaper/469/148/HD-wallpaper-fullstack-development-nodejs-programmer-technology-thumbnail.jpg" alt="" />
 
           <div className={styles.textCard}>
               <h2>JAVASCRIPT DOM</h2>
               <p>[ Fundamentos III ]</p>
               <p className={styles.discritionCurso}>"Curioso você. Divirta-se com este curso grátis de JavaScript. Conheça a plataforma e os professores."</p>
+              <p>
+                12 aulas <br />
+                1h 45 min
+              </p>
+              <p>
+                <i class="bi bi-unlock"></i>  
+                Liberado
+              </p>
           </div>
         </div>
       </div>

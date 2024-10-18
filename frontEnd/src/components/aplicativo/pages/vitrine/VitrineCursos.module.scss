@@ -9,7 +9,7 @@
     .navbar {
         position: relative;
         background-color: $itens_Pretos;
-        font-size: 1.3em;
+        font-size: 1.1em;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -26,6 +26,7 @@
             padding: 10px 100px;
             transition: .3s;
             border-radius: 5px;
+            cursor: pointer;
 
             &:hover {
                 background: linear-gradient(to left, $itens_Pretos, #00bcd4);
@@ -45,17 +46,17 @@
            transform: translateX(-50%);
            background-color: #00bcd4; 
            border-radius: 50%; 
-           display:flex;
+           display: flex;
            justify-content:center; align-items:center;
            border: solid rgb(223, 217, 217) 5px;
-           height: 80px; 
-           width: 80px; 
+           height: 60px; 
+           width: 60px; 
            transition: .2s;
 
            &:hover {
-            border-width: 2px;
-            height: 85px; 
-            width: 85px; 
+            border-width: 3px;
+            height: 62px; 
+            width: 62px; 
            }
          }
         
@@ -74,13 +75,15 @@
          }
     }
 
-    
+    // .titleGrupoCurso {
+    //     background-color: red;
+    // }
 
     .containerDeCardsDeCursos {
         display: flex;
         gap: 50px 20px;
         overflow-x: auto;
-        padding: 30px 20px 20px 0px;
+        padding: 15px 30px 20px 0px;
 
         a {
             text-decoration: none;
@@ -104,10 +107,21 @@
             overflow: hidden;
             box-shadow: 2px 5px 2px rgba(245, 245, 245, 0.11);
             border: solid 2px rgba(255, 255, 255, 0.096);
-            min-width: 230px;
+            min-width: 235px;
             max-width: 235px;
             height: 310px;
             transition: .4s;
+
+            .simboloPrivado {
+                display: flex;
+                gap: 6px;
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                background-color: rgb(0, 0, 0);
+                padding: 5px 20px;
+                border-radius: 0px 0px 5px 0px;
+            }
 
             img {
                 position: absolute;
@@ -120,17 +134,19 @@
                 background-color: rgba(0, 0, 0, 0.712);
                 border-radius: 30px 30px 0px 0px;
                 position: relative;
-                z-index: 1;
+                z-index: 2;
                 padding: 20px;
-                text-align: center;
+                // text-align: center;
                 height: 33%;
                 transition: .3s;
 
                 h2 {
-                    font-size: 1.2em;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: .9em;
                 }
 
                 p {
+                    color: rgba(255, 255, 255, 0.518);
                     font-size: .9em;
                     padding: 5px 0px;
                 }
@@ -141,6 +157,7 @@
                 }
 
                 &:hover {
+                    background-color: rgb(40, 40, 40);
                     height: 100%;
                     border-radius: 0;
 
@@ -209,8 +226,8 @@
             }
 
             .center_button {
-                width: 75px;
-                height: 75px;
+                width: 62px;
+                height: 62px;
             }
             .center_button a{
                 font-size :13px ;
