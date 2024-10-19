@@ -140,6 +140,7 @@ function PlayAula(props) {
           <div className={styles.container_proxima_aula}>
             <div className={styles.proximasAulas}>
               <p className={styles.tipoDePublication}>Próximos</p>
+              {/* <p>Proxiamas aulas</p> */}
 
               {curso.aulas && curso.aulas.length > 0 ? (
                 curso.aulas.map((aula) => (

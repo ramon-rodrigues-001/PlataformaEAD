@@ -130,6 +130,14 @@ function VitrineCursos() {
           </div>
         </div>
       </div>
+
+
+
+
+
+
+
+
     </section>
   )
 }

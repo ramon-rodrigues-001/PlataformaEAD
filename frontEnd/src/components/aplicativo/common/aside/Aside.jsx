@@ -81,7 +81,7 @@ function Aside(props) {
   return (
     <div className={styles.aside} id={taDentroDoMenu && styles.dentroDoMenu} >
       {/* onLoad={creatNota} */}
-      {/* <h2>Anotações</h2> */}
+      <h3>Anotações</h3>
 
       <div className={styles.containerInputPrucurarPorAnotacao}>
         <i className="bi bi-search" id={styles.iconeLupa}></i>

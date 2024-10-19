@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import './Curso.css';
+import { useParams } from 'react-router-dom';
+import './Cursos.css';
 
 function Cursos() {
+  const { id } = useParams();
   const [cursos, setCursos] = useState([]); // Estado para armazenar os cursos
   const [loading, setLoading] = useState(true); // Estado para exibir um indicador de carregamento
 
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/getcursos', {
+      const response = await fetch(`http://localhost:4000/api/getcursos/${id}`, {
         method: 'GET',
       });
       if (response.ok) {

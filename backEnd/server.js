@@ -9,6 +9,7 @@ const registerRouter = require('./routers/register.js');
 const loginRouter = require('./routers/login.js');
 const anotacaoRouter = require('./routers/anotacao.js')
 const cursosRouter = require('./routers/cursos.js')
+const trilhasRouter = require('./routers/trilhaRouter.js')
 
 
  
@@ -26,6 +27,7 @@ app.use('/', registerRouter);
 app.use('/', loginRouter);
 app.use('/', anotacaoRouter)
 app.use('/', cursosRouter)
+app.use('/', trilhasRouter)
 
 // pegar dados do usuario atraves do ID (ligado ao arquivo perfil)
 app.post('/getUserDate', async (req, res) => {

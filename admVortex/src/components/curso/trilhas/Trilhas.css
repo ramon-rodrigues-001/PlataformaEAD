@@ -1,0 +1,20 @@
+.cardTrilha {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    border: 2px solid rgba(255, 255, 255, 0.374);
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: .3s;
+    width: calc(100vw - 400px);
+}
+
+.cardTrilha p {
+    margin: 0;
+    padding: 0;
+}
+.cardTrilha:hover {
+    scale: 1.02;
+}

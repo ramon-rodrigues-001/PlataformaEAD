@@ -1,4 +1,4 @@
-import "./Curso.css"
+import "./Cursos.css"
 
 function CursosForm() {
 
