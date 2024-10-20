@@ -22,6 +22,10 @@ const cursoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    idTrilhaPai: {
+        type: String,
+        required: true
+    },
     aulas: [
         {
             nameAula: {
@@ -68,7 +72,7 @@ const aulaSchema = new mongoose.Schema({
     },
     descritionAula: {
         type: String
-    },
+    }
 });
 
 

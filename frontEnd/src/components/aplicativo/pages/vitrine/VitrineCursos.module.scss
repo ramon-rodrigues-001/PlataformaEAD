@@ -75,9 +75,11 @@
          }
     }
 
+
+
     .titleGrupoCurso {
-        font-size: 1.1em;
-        padding-top: 25px;
+        font-size: 1.3em;
+        padding: 25px 0px 10px;
     }
 
     .containerDeCardsDeCursos {
@@ -92,10 +94,11 @@
 
         &::-webkit-scrollbar {
             width: 6px;
-            height: 5px;
+            height: 3px;
         }
         &::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.3);
+            width: 20px;
+            background-color: rgba(0, 0, 0, 0.142);
         }
 
         .cardDeCurso {

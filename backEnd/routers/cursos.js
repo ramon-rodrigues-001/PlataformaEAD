@@ -5,11 +5,11 @@ const Router = express.Router()
 
 // CRIAR CURSO
 Router.post('/api/addcursos', (req, res) => {
-    const {capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso} = req.body
+    const {capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso, idTrilhaPai} = req.body
     
     try {
         const newCurso = new Curso({
-            capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso
+            capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso, idTrilhaPai
         })
         console.log(newCurso)
         res.json(newCurso)

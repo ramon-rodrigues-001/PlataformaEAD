@@ -14,7 +14,7 @@ function CursosForm() {
         const descritionCurso = event.target.inputDescritionCurso.value;
 
         const formData = {
-            nomeProfessor, capaCurso, nomeCurso, detalheCurso, descritionCurso
+            nomeProfessor, capaCurso, nomeCurso, detalheCurso, descritionCurso, idTrilhaPai: id
         }
     
         try {
