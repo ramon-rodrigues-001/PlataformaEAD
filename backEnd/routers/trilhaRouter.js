@@ -43,6 +43,30 @@ Router.get('/api/gettrilha/:id', async (req, res) => {
 
 
 
+// ADICIONAR O (ID DO CURSO) AO BANCO DE DADOS (TRILHA)
+Router.post('/api/:id/adicionarIDCurso', async (req, res) => {
+    const { id } = req.params; // ID da trilha
+    const { cursoId } = req.body; // ID do curso passado pelo fetch
+
+    try {
+        // Usando $push para adicionar o curso ao array 'cursos'
+        const trilhaAtualizada = await Trilha.findByIdAndUpdate(
+          id,
+          { $push: { cursosIDs: cursoId } }, // Adiciona o curso ao array 'cursos'
+          { new: true } // Retorna a trilha atualizada
+        );
+    
+        if (!trilhaAtualizada) {
+          return res.status(404).send('Trilha não encontrada'); 
+        } 
+    
+        res.json(trilhaAtualizada);
+      } catch (error) {
+        res.status(500).send('Erro ao adicionar curso: ' + error.message);
+    }
+})
+
+
 
 
 

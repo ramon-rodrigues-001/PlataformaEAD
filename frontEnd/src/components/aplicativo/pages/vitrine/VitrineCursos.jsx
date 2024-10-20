@@ -2,8 +2,30 @@ import styles from "./VitrineCursos.module.scss"
 import { useEffect, useState } from "react";
 
 function VitrineCursos() {
+  const [trilhas, setTrilhas] = useState([]);
   const [cursos, setCursos] = useState([]); // Estado para armazenar os cursos
+  // const []
   const [loading, setLoading] = useState(true); // Estado para exibir um indicador de carregamento
+
+
+
+  const fetchTrilhas = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/gettrilhas', {
+        method: 'GET'
+      })
+      if (response.ok) {
+        const data = await response.json();
+        setTrilhas(data); // Armazena os cursos no state
+        console.log(data) 
+      } else {
+        console.error('Erro ao buscar cursos:', response.statusText);
+      }
+    } catch(erro) {
+      console.log('Erro ao buscar por trilhas: ' + erro)
+    }
+  }
+
 
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
@@ -26,7 +48,10 @@ function VitrineCursos() {
   // Usa useEffect para buscar os cursos assim que o componente for montado
   useEffect(() => {
     fetchCursos();
+    fetchTrilhas() 
   }, []);
+
+
 
 
 
@@ -54,8 +79,11 @@ function VitrineCursos() {
       {loading ? ( // Exibe "Carregando..." enquanto os dados não são carregados
           <p>Carregando...</p>
         ) : (
-          <div className={styles.containerDeCardsDeCursos}>
-                {/* <p>JavaScript Avançado</p> */}
+          trilhas.length > 0 ? (
+            trilhas.map((trilha) => (
+              <>
+              <h3 className={styles.titleGrupoCurso}>{trilha.nomeTrilha}</h3>
+              <div className={styles.containerDeCardsDeCursos}>
                {cursos.length > 0 ? (
                   cursos.map((curso) => (
                     <a href={`assistir/${curso._id}`}>
@@ -73,13 +101,40 @@ function VitrineCursos() {
                       <p>Nenhum curso encontrado.</p>
                   )
                 } 
-          </div>
-          
+              </div>
+              </>
+            ))
+          ) : (
+            <div>Nenhuma trilha de estudo encontrada.</div>
+          )
         )
       }
 
 
       <br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       <h3 className={styles.titleGrupoCurso}>FUNDAMENTOS (FULL-STACK)</h3>

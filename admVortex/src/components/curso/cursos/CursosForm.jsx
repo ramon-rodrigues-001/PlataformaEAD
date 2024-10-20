@@ -25,10 +25,25 @@ function CursosForm() {
                 },
                 body: JSON.stringify(formData),
             });
+
+            const data = await response.json(); // Converte a resposta para JSON
+            const cursoId = data._id; // Extrai o ID do curso
+
+            const responseTrilha = await fetch(`http://localhost:4000/api/${id}/adicionarIDCurso`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ cursoId }),
+            });
+            if (responseTrilha.ok) {
+                console.log('Curso adicionado à trilha com sucesso!');
+            } else {
+                console.log('Erro ao adicionar curso à trilha');
+            }
         } catch(err) {
             console.log('Erro CursosForm.js : ' + err)
         }
-
     }
 
     return (

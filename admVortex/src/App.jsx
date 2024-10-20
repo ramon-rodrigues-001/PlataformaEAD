@@ -33,7 +33,7 @@ function App() {
               <Route path="/trilha/:id/cursos" element={
                   < Cursos />
               }/>
-              <Route path="/curses/newCurse" element={
+              <Route path="/curses/newCurse/:id" element={
                   < CursosForm />
               }/>
               <Route path="/aulas/:id" element={

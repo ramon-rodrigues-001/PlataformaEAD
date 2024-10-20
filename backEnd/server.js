@@ -6,7 +6,7 @@ const User = require('./models/user.js')
 
 
 const registerRouter = require('./routers/register.js');
-const loginRouter = require('./routers/login.js');
+const loginRouter = require('./routers/login.js'); 
 const anotacaoRouter = require('./routers/anotacao.js')
 const cursosRouter = require('./routers/cursos.js')
 const trilhasRouter = require('./routers/trilhaRouter.js')
