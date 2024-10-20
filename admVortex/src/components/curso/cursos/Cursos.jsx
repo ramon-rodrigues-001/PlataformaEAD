@@ -10,7 +10,7 @@ function Cursos() {
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/getcursos/${id}`, {
+      const response = await fetch(`http://localhost:4000/api/trilhas/getcursos/${id}`, {
         method: 'GET',
       });
       if (response.ok) {
@@ -37,7 +37,7 @@ function Cursos() {
       ) : (
         <>
           {/* Botão para adicionar um novo curso */}
-          <a href="curses/newCurse">
+          <a href={`/curses/newCurse/${id}`}>
             <div className="curse add-curse">
               +
             </div>
@@ -47,7 +47,7 @@ function Cursos() {
           {/* Renderiza os cursos obtidos do back-end */}
           {cursos.length > 0 ? (
             cursos.map((curso) => (
-              <a href={`aulas/${curso._id}`}>
+              <a href={`/aulas/${curso._id}`}>
                 <div key={curso._id} className="curse">
                   <div className="textCard">
                     <h2>{curso.nomeCurso}</h2>

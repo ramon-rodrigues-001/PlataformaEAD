@@ -11,10 +11,17 @@
     width: calc(100vw - 400px);
 }
 
+.criarNovaTrilha {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
 .cardTrilha p {
     margin: 0;
     padding: 0;
 }
+
 .cardTrilha:hover {
     scale: 1.02;
 }

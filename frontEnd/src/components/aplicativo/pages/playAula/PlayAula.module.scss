@@ -76,15 +76,11 @@
                     }
                 }
     
-                // #descrition {
-                //     flex-grow: 1;
-                //     min-width: 70vw;
-                //     padding-right: 400px; 
-
-                //     // .d {
-                //     //     width: 20vw;
-                //     // }
-                // }
+                #descrition {
+                    .d {
+                        line-height: 1.4em;
+                    }
+                }
 
                 .destaqueTexto {
                     font-family: 'Courier New', Courier, monospace;

@@ -18,8 +18,8 @@ Router.post('/api/addtrilha', (req, res) => {
  })
 
  
- // PEGAR TRILHAS
-Router.get('/api/gettrilha', async (req, res) => { 
+// PEGAR TRILHAS
+Router.get('/api/gettrilhas', async (req, res) => { 
     try {
         const trilhas = await Trilha.find();
         res.json(trilhas); 
@@ -28,6 +28,22 @@ Router.get('/api/gettrilha', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar trilhas' });
     }
 })
+
+
+// PEGAR UMA TRILHA
+Router.get('/api/gettrilha/:id', async (req, res) => { 
+    try {
+        const trilhas = await Trilha.find();
+        res.json(trilhas); 
+    } catch (err) {
+        console.error('Erro ao buscar trilhas:', err);
+        res.status(500).json({ error: 'Erro ao buscar trilhas' });
+    }
+})
+
+
+
+
 
 
 module.exports = Router

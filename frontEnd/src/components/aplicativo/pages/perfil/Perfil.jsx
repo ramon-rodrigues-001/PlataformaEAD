@@ -70,7 +70,39 @@ function Perfil() {
             
             <section className={styles.container_perfil}>
                 <div className={styles.profile_container}>
-                    <div className={styles.profile_header}>
+
+
+
+                    <div>
+                        <img src='https://cdn.areademembros.com/cache/8hWmgaIKnKiHTmZ8bqU9HdxuA636C00D5WoZUmIQ-200x200-resized.jpg' alt='ss' className={styles.profile_avatar} />
+                    </div>
+
+
+                    <div className={styles.descricaoDoUsuario}>
+                        <p className={styles.nome}>Ramon Rodrigues Cordeiro</p>
+                        <p className={styles.data}><i class="bi bi-calendar"></i> Membro desde 15 de outubro de 2024</p>
+                        <span className={styles.spanClasse} id={styles.membro}>
+                        <i class="bi bi-person-check-fill"></i> Membro
+                        </span>
+                        <span className={styles.spanTeg}><i class="bi bi-star-fill"></i> TRILHA PYTHON AVANÇADO</span >
+                        <span className={styles.spanTeg}><i class="bi bi-star-fill"></i> FUNDAMENTOS (FULL-STACK)</span>
+                    </div>
+
+                    
+                    <span className={styles.coin}>0💎</span>
+
+
+
+
+
+
+
+
+
+
+
+
+                    {/* <div className={styles.profile_header}>
                         <img src='https://cdn.areademembros.com/cache/8hWmgaIKnKiHTmZ8bqU9HdxuA636C00D5WoZUmIQ-200x200-resized.jpg' alt='ss' className={styles.profile_avatar} />
                         <h1 className={styles.profile_name}>
                             {dadosDoUsuario.nome}
@@ -95,7 +127,7 @@ function Perfil() {
                                 </button>
                             </a>
                         )}
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className={styles.cntainer_buttons_perfil}>

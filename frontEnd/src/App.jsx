@@ -31,6 +31,9 @@ export default function App() {
             setTema(temaSalvo)
         }
     }
+    useEffect(() => {
+        mudarTema()
+    }, [])
 
     // Ocultar ou exibir aside
     const ocultarAside = () => {

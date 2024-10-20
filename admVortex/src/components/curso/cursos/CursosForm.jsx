@@ -1,6 +1,8 @@
 import "./Cursos.css"
+import { useParams } from 'react-router-dom';
 
 function CursosForm() {
+    const { id } = useParams();
 
     const criarCurso = async (event) => {
         event.preventDefault()

@@ -1,5 +1,6 @@
 const { Curso, Aula } = require('../models/cursos')
 const express = require('express')
+const TrilhaCurso = require('../models/trilhas')
 const Router = express.Router()
 
 // CRIAR CURSO
@@ -11,13 +12,14 @@ Router.post('/api/addcursos', (req, res) => {
             capaCurso, nomeCurso, nomeProfessor, detalheCurso, descritionCurso
         })
         console.log(newCurso)
+        res.json(newCurso)
         newCurso.save()
     } catch(err) {
         console.log("erro ao tentar salvar o curso : " + err)
     }
 })
 
-// PEGAR TODOS OS CURSOS
+// PEGAR TODOS OS CURSOS GERAL
 Router.get('/api/getcursos', async (req, res) => {
     try {
         const cursos = await Curso.find();
@@ -27,6 +29,29 @@ Router.get('/api/getcursos', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar cursos' });
     }
 });
+
+
+// PEGAR OS CURSOS DE ACORDO COM CADA TRILHA DE ENCINO
+Router.get('/api/trilhas/getcursos/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      // Busca a trilha pelo ID
+      const trilha = await TrilhaCurso.findById(id);
+      if (!trilha) {
+        return res.status(404).send('Trilha não encontrada');
+      }
+  
+      // Busca todos os cursos que correspondem aos IDs da trilha
+      const cursos = await Curso.find({ _id: { $in: trilha.cursosIDs } });
+  
+      res.json(cursos);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro ao buscar os cursos');
+    }
+});
+
 
 // PEGAR APENAS UM CURSO
 Router.get('/api/getcurso/:id', async (req, res) => {

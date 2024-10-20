@@ -6,9 +6,8 @@ function Trilhas() {
     const [trilhas, setTrilhas] = useState(null)
 
     const fetchTrilha = async () => {
-        
         try {
-            const response = await fetch('http://localhost:4000/api/gettrilha', {
+            const response = await fetch('http://localhost:4000/api/gettrilhas', {
                 method: 'GET'
             })
             if (response.ok) {
@@ -20,7 +19,6 @@ function Trilhas() {
         } catch(erro) {
             console.log('Erro ao tentar pegar as trilhas existentes: ' + erro)
         }
-        
     }
     
     useEffect(() => {
@@ -32,14 +30,14 @@ function Trilhas() {
     return (
         <div>
             <a href='/trilha/criartrilha' className='cardTrilha'>
-                <p>Criar nova trilha</p>
+                <p className='criarNovaTrilha'>Criar nova trilha</p>
             </a>
 
             {trilhas && (
                 trilhas.map(element => (
                     <a href={`/trilha/${element._id}/cursos`} className='cardTrilha'>
                         <p>{element.nomeTrilha}</p>
-                        <p>2 modulos</p>
+                        <p>{element.cursosIDs.length} modulos</p>
                     </a>
                 ))
             )}
