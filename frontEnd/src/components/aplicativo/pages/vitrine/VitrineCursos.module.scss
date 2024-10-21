@@ -78,8 +78,12 @@
 
 
     .titleGrupoCurso {
-        font-size: 1.3em;
-        padding: 25px 0px 10px;
+        font-size: 1.2em;
+        padding: 25px 0px 0px;
+    }
+    .detalhesGrupoCurso {
+        color: rgb(115, 114, 114);
+        padding-bottom: 10px;
     }
 
     .containerDeCardsDeCursos {
@@ -115,7 +119,7 @@
             max-width: 235px;
             height: 310px;
             transition: .4s;
-
+            border-radius: 10px;
 
             
 

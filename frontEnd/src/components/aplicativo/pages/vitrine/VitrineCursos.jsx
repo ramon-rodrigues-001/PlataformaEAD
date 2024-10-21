@@ -82,45 +82,57 @@ function VitrineCursos() {
           <p>Carregando...</p>
         ) : (
           trilhas.length > 0 ? (
-            trilhas.map((trilha) => (
-              <>
-              <h3 className={styles.titleGrupoCurso}>{trilha.nomeTrilha}</h3>
-              <div className={styles.containerDeCardsDeCursos}>
+            trilhas.map((trilha) => {
+              const cursosDaTrilha = cursos.filter((curso) => curso.idTrilhaPai === trilha._id);
+              const totalAulas = cursosDaTrilha.reduce((acc, curso) => acc + curso.aulas.length, 0);
 
-               {cursos.length > 0 ? (
-                  cursos.filter((curso) => curso.idTrilhaPai === trilha._id).map((curso) => (
-                    
-                    <a href={`assistir/${curso._id}`}>
-                      <div className={styles.cardDeCurso}>
-                        <span className={styles.simboloPrivado}>
-                          <i class="bi bi-lock"></i> 
-                          Privado
-                        </span>
+              
 
-                        <img src={curso.capaCurso} alt="Capa do curso" />
+              return (
+                <>
+                <h3 className={styles.titleGrupoCurso}>{trilha.nomeTrilha}</h3>
+                <p className={styles.detalhesGrupoCurso}>
+                  {trilha.cursosIDs.length} Modulos 
+                  - {totalAulas} aulas
+                </p>
 
-                        <div className={styles.textCard}>
-                            <h2>{curso.nomeCurso}</h2>
-                            <p>[ {curso.detalheCurso} ]</p>
-                            <p className={styles.discritionCurso}>"{curso.descritionCurso}"</p>
-                            <p>
-                              23 aulas <br />
-                              4h 22 min
-                            </p>
-                            <p>
-                              <i class="bi bi-lock"></i>  
-                              Privado
-                            </p>
+                <div className={styles.containerDeCardsDeCursos}>
+                {cursos.length > 0 ? (
+                    cursosDaTrilha.map((curso) => (
+                      
+                      <a href={`assistir/${curso._id}`}>
+                        <div className={styles.cardDeCurso}>
+                          <span className={styles.simboloPrivado}>
+                            <i class="bi bi-lock"></i> 
+                            Privado
+                          </span>
+
+                          <img src={curso.capaCurso} alt="Capa do curso" />
+
+                          <div className={styles.textCard}>
+                              <h2>{curso.nomeCurso}</h2>
+                              <p>[ {curso.detalheCurso} ]</p>
+                              <p className={styles.discritionCurso}>"{curso.descritionCurso}"</p>
+                              <p>
+                                23 aulas <br />
+                                4h 22 min
+                              </p>
+                              <p>
+                                <i class="bi bi-lock"></i>  
+                                Privado
+                              </p>
+                          </div>
                         </div>
-                      </div>
-                    </a>
-                  ))) : (
-                      <p>Nenhum curso encontrado.</p>
-                  )
-                } 
-              </div>
-              </>
-            ))
+                      </a>
+                    ))) : (
+                        <p>Nenhum curso encontrado.</p>
+                    )
+                  } 
+                </div>
+                </>
+              )
+              
+            })
           ) : (
             <div>Nenhuma trilha de estudo encontrada.</div>
           )
