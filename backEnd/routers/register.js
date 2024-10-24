@@ -4,33 +4,33 @@ const router = express.Router()
 
 
 router.post("/api/register", async (req, res) => { 
-    const {nickname, username, email, password, telefone} = req.body;
-    let nicknameExist = false
+    const now = new Date();
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(now);
+
+    const {username, email, password, telefone} = req.body;
+    let userExiste = false
 
     await user.find().then(usuarios => {
 
         usuarios.forEach(usuario => {
-            if (username === usuario.nome) {
-                nicknameExist = true
-                res.status(409).json({ message: "o apelido do usuário já existe" });
-            }
-            else if (email === usuario.email) {
-                nicknameExist = true
+            if (email === usuario.email) {
+                userExiste = true
                 res.status(409).json({ message: "o email do usuário já existe" });
             }
             else if (password.length < 8) {
-                nicknameExist = true
+                userExiste = true
                 res.status(400).json({ message: "requisito minimo de caracteres" });
             }
         })
 
-        if (nicknameExist === false) {
+        if (userExiste === false) {
             const newUser = new user({ 
-                nick: nickname,
                 nome: username,
                 email: email, 
                 senha: password,
-                telefone: telefone
+                telefone: telefone,
+                data: formattedDate
             })
             try {
                 newUser.save()

@@ -34,7 +34,7 @@ function Perfil() {
             }
         
             try {
-                const response = await fetch(`http://localhost:4000/getUserDate`, {
+                const response = await fetch(`https://plataformaead-2.onrender.com/getUserDate`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -68,6 +68,7 @@ function Perfil() {
         ) : (
 
             
+            
             <section className={styles.container_perfil}>
                 <div className={styles.profile_container}>
 
@@ -79,7 +80,7 @@ function Perfil() {
 
 
                     <div className={styles.descricaoDoUsuario}>
-                        <p className={styles.nome}>Ramon Rodrigues Cordeiro</p>
+                        <p className={styles.nome}>{dadosDoUsuario.nome}</p>
                         <p className={styles.data}><i class="bi bi-calendar"></i> Membro desde 15 de outubro de 2024</p>
                         <span className={styles.spanClasse} id={styles.membro}>
                         <i class="bi bi-person-check-fill"></i> Membro

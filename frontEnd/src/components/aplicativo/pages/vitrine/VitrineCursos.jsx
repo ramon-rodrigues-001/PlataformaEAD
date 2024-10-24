@@ -11,7 +11,8 @@ function VitrineCursos() {
 
   const fetchTrilhas = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/gettrilhas', {
+      // MUDAR URL ABAIXO
+      const response = await fetch('https://plataformaead-2.onrender.com/api/gettrilhas', {
         method: 'GET'
       })
       if (response.ok) {
@@ -30,7 +31,8 @@ function VitrineCursos() {
   // Função para buscar os cursos da API
   const fetchCursos = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/getcursos', {
+      // MUDAR URL ABAIXO
+      const response = await fetch('https://plataformaead-2.onrender.com/api/getcursos', {
         method: 'GET',
       });
       if (response.ok) {

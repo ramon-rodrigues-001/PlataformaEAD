@@ -7,17 +7,17 @@ export default function Register(props) {
     const handleSubmit = async ( event ) => {
         event.preventDefault()
 
-        const nickname = event.target.nickname.value;
         const username = event.target.username.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const telefone = event.target.telefone.value
 
-        const formData = {nickname, username, email, password, telefone}
+        const formData = {username, email, password, telefone}
         console.log(formData)
     
         try {
-            const response = await fetch("http://localhost:4000/api/register", {
+            // MUDAR URL ABAIXO
+            const response = await fetch("https://plataformaead-2.onrender.com/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -68,12 +68,6 @@ export default function Register(props) {
             <form onSubmit={handleSubmit}>
                 
                 <h1 className={styles.title}>Welcome</h1>
-
-                <div className={styles.inputContainer}>
-                    <label htmlFor="nickname" className={styles.label}>Nome unico (nickName)</label>
-                    <input type="text" id="nickname" name="nickname" placeholder="Ramon321" required className={styles.input}/>
-                </div>
-                
                 <div className={styles.inputContainer}>
                     <label htmlFor="username" className={styles.label}>Nome completo</label>
                     <input type="text" id="username" name="username" placeholder="Ramon Rodrigues Cordeiro" required className={styles.input}/>

@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    nick: {
-        type: String,
-        required: true
-    },
     nome: {
         type: String,
         required: true
@@ -24,6 +20,10 @@ const userSchema = new mongoose.Schema({
         }
     },
     telefone: {
+        type: String,
+        required: true
+    },
+    data: {
         type: String,
         required: true
     },
