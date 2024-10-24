@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import styles from './styles/App.module.scss'
 
 import Header from './components/aplicativo/common/header/Header'
@@ -9,7 +10,6 @@ import Noticias from './components/aplicativo/pages/noticias/Noticias';
 import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
-import { useEffect, useState } from 'react';
 import PageAnotacao from './components/aplicativo/pages/pageAnotacao/pageAnotacao';
 
 

@@ -14,8 +14,12 @@ function Header(props) {
   return (
     <header id={tema === 'Escuro' ? styles.temaDark : null}>
         <div className={styles.div_logo_icone}>
-          <i class="bi bi-arrows" id={styles.iconeAside} onClick={ocultarAside}></i>
-          <h1>Vortex</h1>
+          <i className="bi bi-arrows" id={styles.iconeAside} onClick={ocultarAside}></i>
+          {tema === 'Escuro' ? (
+            <img src="/logoVortexBranco.png" alt="logoVortex"  className={styles.logoVortex}/>
+          ): (
+            <img src="/logoVortex.png" alt="logoVortex"  className={styles.logoVortex}/>
+          )}
         </div>
 
         <ul>
