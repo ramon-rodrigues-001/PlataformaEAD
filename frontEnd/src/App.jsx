@@ -20,19 +20,18 @@ export default function App() {
 
     // SISTEMA DE MUDAR TEMA ESCURO/CLARO
     const mudarTema = () => {
-        if (tema === null) {
-            localStorage.setItem('temaAtual', 'Escuro');
-            temaSalvo = localStorage.getItem('temaAtual');
-            setTema(temaSalvo)
-        }
-        else {
-            temaSalvo === 'Claro' ? localStorage.setItem('temaAtual', 'Escuro') : localStorage.setItem('temaAtual', 'Claro')
-            temaSalvo = localStorage.getItem('temaAtual');
-            setTema(temaSalvo)
-        }
+        temaSalvo === 'Escuro' 
+            ? localStorage.setItem('temaAtual', 'Claro') 
+            : localStorage.setItem('temaAtual', 'Escuro')
+        temaSalvo = localStorage.getItem('temaAtual');
+        setTema(temaSalvo)
     }
+
     useEffect(() => {
-        mudarTema()
+        if (temaSalvo === null) {
+            localStorage.setItem('temaAtual', 'Escuro');
+            setTema('Escuro');
+        }
     }, [])
 
     // Ocultar ou exibir aside

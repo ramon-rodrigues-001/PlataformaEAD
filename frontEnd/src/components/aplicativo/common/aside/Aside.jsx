@@ -17,7 +17,8 @@ function Aside(props) {
     if (tituloAnotation) {
       try {
         // MUDAR URL ABAIXO
-        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
+        console.log(userId)
+        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -46,7 +47,7 @@ function Aside(props) {
     const fetchNotas = async () => {
       try {
         // MUDAR URL ABAIXO
-        const response = await fetch(`https://plataformaead-2.onrender.com/api/nota/${userId}`, {
+        const response = await fetch(`http://localhost:4000/api/nota/${userId}`, {
           method: 'POST'
         });
         if (!response.ok) {
@@ -96,7 +97,7 @@ function Aside(props) {
 
       <div className='containerDeAnotacao'>
         {anotacao && anotacao.length > 0 ? (
-          anotacao.map((element, index) => (
+          anotacao.slice().reverse().map((element, index) => (
             <a href={`/pageanotacao/${element._id}`} className={styles.cardsAnotacao} key={index}>
               <p>{element.tituloAnotation}</p>
               <div className={styles.informationsAnotacao}>

@@ -12,7 +12,7 @@ function VitrineCursos() {
   const fetchTrilhas = async () => {
     try {
       // MUDAR URL ABAIXO
-      const response = await fetch('https://plataformaead-2.onrender.com/api/gettrilhas', {
+      const response = await fetch('http://localhost:4000/api/gettrilhas', {
         method: 'GET'
       })
       if (response.ok) {
@@ -32,7 +32,7 @@ function VitrineCursos() {
   const fetchCursos = async () => {
     try {
       // MUDAR URL ABAIXO
-      const response = await fetch('https://plataformaead-2.onrender.com/api/getcursos', {
+      const response = await fetch('http://localhost:4000/api/getcursos', {
         method: 'GET',
       });
       if (response.ok) {

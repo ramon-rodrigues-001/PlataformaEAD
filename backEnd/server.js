@@ -81,7 +81,7 @@ app.post('/webhook', (req, res) => {
         const data = req.body;
         
         const buyer = data.data.buyer;
-        console.log(`Compra aprovada! Cliente: ${buyer.name}, Email: ${buyer.email}`);
+        console.log(`Compra aprovada! Cliente: ${buyer}`);
             
         
         res.status(200).send('Recebido');

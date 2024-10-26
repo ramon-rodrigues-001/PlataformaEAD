@@ -17,7 +17,7 @@ export default function Register(props) {
     
         try {
             // MUDAR URL ABAIXO
-            const response = await fetch("https://plataformaead-2.onrender.com/api/register", {
+            const response = await fetch("http://localhost:4000/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
