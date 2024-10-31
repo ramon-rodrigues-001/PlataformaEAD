@@ -3,55 +3,45 @@ import { useEffect, useState } from "react";
 
 function VitrineCursos() {
   const [trilhas, setTrilhas] = useState([]);
-  const [cursos, setCursos] = useState([]); // Estado para armazenar os cursos
-  const [loading, setLoading] = useState(true); // Estado para exibir um indicador de carregamento
+  const [cursos, setCursos] = useState([]);
+  const [loading, setLoading] = useState(true); // Estado de carregamento
+  const [usuario, setUsuario] = useState(null)
 
 
-
+  // PEGAR AS TRILHAS
   const fetchTrilhas = async () => {
-    try {
-      // MUDAR URL ABAIXO
-      const response = await fetch('http://localhost:4000/api/gettrilhas', {
-        method: 'GET'
-      })
-      if (response.ok) {
-        const data = await response.json();
-        setTrilhas(data); // Armazena os cursos no state
-        console.log(data) 
-      } else {
-        console.error('Erro ao buscar cursos:', response.statusText);
-      }
-    } catch(erro) {
-      console.log('Erro ao buscar por trilhas: ' + erro)
-    }
-  }
-
-
-  // Função para buscar os cursos da API
-  const fetchCursos = async () => {
-    try {
-      // MUDAR URL ABAIXO
-      const response = await fetch('http://localhost:4000/api/getcursos', {
-        method: 'GET',
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setCursos(data); // Armazena os cursos no state
-        setLoading(false); // Para de exibir o indicador de carregamento
-      } else {
-        console.error('Erro ao buscar cursos:', response.statusText);
-      }
-    } catch (err) {
-      console.error('Erro no fetch:', err);
-    }
+    const response = await fetch('http://localhost:4000/api/gettrilhas');
+    if (response.ok) return await response.json();
+    throw new Error("Erro ao buscar trilhas");
   };
 
-  // Usa useEffect para buscar os cursos assim que o componente for montado
-  useEffect(() => {
-    fetchCursos();
-    fetchTrilhas() 
-  }, []);
+  // PEGAR OS CURSOS
+  const fetchCursos = async () => {
+    const response = await fetch('http://localhost:4000/api/getcursos');
+    if (response.ok) return await response.json();
+    throw new Error("Erro ao buscar cursos");
+  };
 
+  // PEGAR O USUARIO LOGADO
+  const fetchUsuario = async () => {
+    const userID = localStorage.getItem('userID');
+    const response = await fetch(`http://localhost:4000/api/getUser/${userID}`);
+    if (response.ok) return await response.json();
+    throw new Error("Erro ao buscar usuário");
+  };
+
+
+  // SISTEMA PARA CONTROLHAR AS (FETCH())
+  useEffect(() => {
+    Promise.all([fetchTrilhas(), fetchCursos(), fetchUsuario()])
+      .then(([trilhasData, cursosData, usuarioData]) => {
+        setTrilhas(trilhasData);
+        setCursos(cursosData);
+        setUsuario(usuarioData);
+      })
+      .catch((error) => console.error("Erro ao buscar dados:", error))
+      .finally(() => setLoading(false));
+  }, []);
 
 
 

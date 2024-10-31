@@ -58,25 +58,37 @@ function Perfil() {
                 const situacao_de_localStorage = localStorage.getItem('login');
                 setSituacao(situacao_de_localStorage);
             }
-        
+
             try {
-                const response = await fetch(`http://localhost:4000/getUserDate`, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json' 
-                    },
-                    body: JSON.stringify({ userID })
-                });
+                const response = await fetch(`http://localhost:4000/api/getUser/${userID}`, { method: "GET" });
+
+                if (!response.ok) throw new Error('Erro na requisição: ' + response.status);
+
+                const data = await response.json()
+                setDadosDoUsuario(data)
+            } catch(erro) {
+                console.log('Erro ao buscar por usuario front-end: ' + erro)
+            } 
         
-                if (!response.ok) {
-                    throw new Error('Erro na requisição: ' + response.status);
-                }
+            
+            // try {
+            //     const response = await fetch(`http://localhost:4000/getUserDate`, {
+            //         method: "POST",
+            //         headers: {
+            //             'Content-Type': 'application/json' 
+            //         },
+            //         body: JSON.stringify({ userID })
+            //     });
         
-                const data = await response.json();
-                setDadosDoUsuario(data.usuario);
-            } catch (error) {
-                console.error('Erro ao buscar os dados do usuário:', error);
-            }
+            //     if (!response.ok) {
+            //         throw new Error('Erro na requisição: ' + response.status);
+            //     }
+        
+            //     const data = await response.json();
+            //     setDadosDoUsuario(data.usuario);
+            // } catch (error) {
+            //     console.error('Erro ao buscar os dados do usuário:', error);
+            // }
         }
 
         fetchUserData(); 
