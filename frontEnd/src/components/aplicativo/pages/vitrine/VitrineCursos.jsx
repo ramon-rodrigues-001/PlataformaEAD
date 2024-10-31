@@ -5,7 +5,7 @@ function VitrineCursos() {
   const [trilhas, setTrilhas] = useState([]);
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true); // Estado de carregamento
-  const [usuario, setUsuario] = useState(null)
+  const [usuario, setUsuario] = useState([])
 
 
   // PEGAR AS TRILHAS
@@ -82,6 +82,7 @@ function VitrineCursos() {
               return (
                 <>
                 <h3 className={styles.titleGrupoCurso}>{trilha.nomeTrilha}</h3>
+
                 <p className={styles.detalhesGrupoCurso}>
                   {trilha.cursosIDs.length} Modulos 
                   - {totalAulas} aulas
@@ -92,11 +93,32 @@ function VitrineCursos() {
                     cursosDaTrilha.map((curso) => (
                       
                       <a href={`assistir/${curso._id}`}>
+                        
                         <div className={styles.cardDeCurso}>
-                          <span className={styles.simboloPrivado}>
-                            <i class="bi bi-lock"></i> 
-                            Privado
-                          </span>
+
+                          {usuario.listaCursos ? (
+                            usuario.listaCursos.includes(trilha._id) ? 
+                              (
+                                <span className={styles.simboloLiberado}>
+                                  <i class="bi bi-unlock"></i>
+                                  Liberado
+                                </span>
+                              ) : 
+                              (
+                                <span className={styles.simboloPrivado}>
+                                  <i class="bi bi-lock"></i> 
+                                  Privado
+                                </span>
+                              )
+                            
+                          ): (
+                            <span className={styles.simboloPrivado}>
+                              <i class="bi bi-lock"></i> 
+                              Privado
+                            </span>
+                          )}
+                          
+                        
 
                           <img src={curso.capaCurso} alt="Capa do curso" />
 
