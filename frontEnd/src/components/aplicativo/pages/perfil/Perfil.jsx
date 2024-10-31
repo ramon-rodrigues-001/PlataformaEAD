@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Login from "./login/Login"
-import Register from "./register/Register"
 import styles from "./Perfil.module.scss"
 
 function Perfil() {
     const situacao_de_localStorage = localStorage.getItem('login')
     const [situacao, setSituacao] = useState(situacao_de_localStorage)
     const [dadosDoUsuario, setDadosDoUsuario] = useState(null)
+    const [nomesTrilhasCompradas, setNomesTrilhasCompradas] = useState([])
 
 
     const sairDaCorta = () => {
@@ -21,6 +20,33 @@ function Perfil() {
             window.location.href = newURL;
         }
     }
+
+
+    // Pegar as trilhas que o usuario possue no registro
+    useEffect(() => {
+        async function pegarNomeTrilhas() {
+            const idsTrilhasDoUsuario = dadosDoUsuario.listaCursos
+ 
+            try {
+                const response = await fetch(`http://localhost:4000/api/pegarTrilhasDoUsuario?ids=${idsTrilhasDoUsuario.join(',')}` , {
+                    method: 'GET'
+                }) 
+                 
+                const data = await response.json()
+    
+                if (response.ok) {
+                    setNomesTrilhasCompradas(data)
+                }
+                else {
+                    console.log('Erro 500; Erro ao buscar trilhas...')
+                }
+            } catch (erro) {
+                console.log('Erro ao buscar por trilhas compradas, Para o perfil')
+            }
+        }
+
+        pegarNomeTrilhas()
+    }, [dadosDoUsuario]) 
 
 
     useEffect(() => {
@@ -37,7 +63,7 @@ function Perfil() {
                 const response = await fetch(`http://localhost:4000/getUserDate`, {
                     method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json' 
                     },
                     body: JSON.stringify({ userID })
                 });
@@ -54,7 +80,7 @@ function Perfil() {
         }
 
         fetchUserData(); 
-    }, [situacao]);
+    }, [situacao]); 
 
 
     if (!dadosDoUsuario && situacao !== 'Deslogado') {
@@ -82,11 +108,18 @@ function Perfil() {
                     <div className={styles.descricaoDoUsuario}>
                         <p className={styles.nome}>{dadosDoUsuario.nome}</p>
                         <p className={styles.data}><i class="bi bi-calendar"></i> Membro desde {dadosDoUsuario.data}</p>
+
+                        
                         <span className={styles.spanClasse} id={styles.membro}>
-                        <i class="bi bi-person-check-fill"></i> Membro
+                        <i class="bi bi-person-check-fill"></i> {dadosDoUsuario.rule === 'admin' ? ('Adiministrador'): ('Membro')}
                         </span>
-                        <span className={styles.spanTeg}><i class="bi bi-star-fill"></i> TRILHA PYTHON AVANÇADO</span >
-                        <span className={styles.spanTeg}><i class="bi bi-star-fill"></i> FUNDAMENTOS (FULL-STACK)</span>
+
+                        
+                        {nomesTrilhasCompradas.map(nome => (
+                            <span className={styles.spanTeg}>
+                                <i class="bi bi-star-fill"></i> {nome.nomeTrilha}
+                            </span >
+                        ))}
                     </div>
 
                     

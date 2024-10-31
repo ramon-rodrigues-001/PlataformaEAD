@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 function VitrineCursos() {
   const [trilhas, setTrilhas] = useState([]);
   const [cursos, setCursos] = useState([]); // Estado para armazenar os cursos
-  // const []
   const [loading, setLoading] = useState(true); // Estado para exibir um indicador de carregamento
 
 

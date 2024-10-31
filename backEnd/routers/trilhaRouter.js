@@ -68,6 +68,17 @@ Router.post('/api/:id/adicionarIDCurso', async (req, res) => {
 
 
 
+Router.get('/api/pegarTrilhasDoUsuario/', async (req, res) => {
+    try {
+        const ids = req.query.ids.split(',')
+        const cursos = await Trilha.find({ _id: { $in: ids } });
+        res.status(200).json(cursos)
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erro ao buscar trilhas' });
+    }
+})
+
 
 
 module.exports = Router
