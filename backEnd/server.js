@@ -28,18 +28,10 @@ app.use('/', trilhasRouter)
 app.use('/', trilhasRouter)
 app.use('/', usuarioRouter)
 
-// pegar dados do usuario atraves do ID (ligado ao arquivo perfil)
-// app.post('/getUserDate', async (req, res) => {
-//     const userID = req.body
-    
-//     try {
-//         const usuario = await User.findOne({_id: userID.userID})
-//         // console.log(usuario)
-//         res.status(200).json({usuario})
-//     } catch (error) {
-//         res.status(401).json({message: 'erro ao tentar buscar dados do usuario'})
-//     }
-// })
+
+
+
+
 
 // Conexão com o MongoDB
 const mongoURI = 'mongodb+srv://ramon:13153080552@cluster0.cij4gvt.mongodb.net/';
@@ -66,10 +58,8 @@ mongoose.connect(mongoURI, {
 
 
 
-
-
-// conectando a API do hotmart
-// de alguma forma eu vou fazer uma integração lá com a hotmart, mesmo não consequindo imaginar como isso é feito
+// Donectando a API do hotmart
+// De alguma forma eu vou fazer uma integração lá com a hotmart, mesmo não consequindo imahginar como isso é feito
 app.post('/webhook', (req, res) => {
     const hmToken = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110'; // Token correto da Hotmart
     const hmReceivedToken = req.headers['x-hotmart-hottok']; // Cabeçalho correto
@@ -89,33 +79,3 @@ app.post('/webhook', (req, res) => {
         res.status(401).send('Não autorizado...');
     }
 });
-
-
-
-
-// app.post('/webhook', (req, res) => {
-//     const hmToken = 'OD0pggZi2iaOgOZIPHAFtADHnQ3mMU57408110';
-//     const hmReceivedToken = req.headers['x-hotmart-hottok'];
-
-//     if (hmReceivedToken === hmToken) {
-//         const data = req.body;
-        
-//         if (data.event === "PURCHASE_APPROVED") {
-//             const buyerEmail = data.data.transaction.buyer.email;
-
-//             // Encontrar o usuário e liberar o curso
-//             User.findOneAndUpdate({ email: buyerEmail }, { courseAccess: true }, (err, user) => {
-//                 if (err || !user) {
-//                     console.log("Usuário não encontrado ou erro ao liberar o curso.");
-//                     return res.status(500).send("Erro interno.");
-//                 }
-//                 console.log("Acesso ao curso liberado para:", buyerEmail);
-//                 res.status(200).send('Acesso liberado.');
-//             });
-//         } else {
-//             res.status(200).send('Evento não tratado.');
-//         }
-//     } else {
-//         res.status(401).send('Não autorizado...');
-//     }
-// });

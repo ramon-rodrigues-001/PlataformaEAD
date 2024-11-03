@@ -1,4 +1,5 @@
 const { Curso, Aula } = require('../models/cursos')
+const User = require('../models/user')
 const express = require('express')
 const TrilhaCurso = require('../models/trilhas')
 const Router = express.Router()
@@ -54,11 +55,17 @@ Router.get('/api/trilhas/getcursos/:id', async (req, res) => {
 
 
 // PEGAR APENAS UM CURSO
-Router.get('/api/getcurso/:id', async (req, res) => {
-    const { id } = req.params;
+Router.get('/api/getcurso/:idCurso/:idUser', async (req, res) => {
+    const { idCurso, idUser } = req.params;
 
     try {
-        const curso = await Curso.findById(id);
+        const curso = await Curso.findById(idCurso);
+        const usuario = await User.findById(idUser)
+
+        if (!usuario.listaCursos.includes(curso.idTrilhaPai)) {
+            return res.status(404).json({ error: 'Usuario não possue acesso a esta trilha', idTrila: curso.idTrilhaPai });
+        }
+
         res.json(curso); 
     } catch (err) {
         console.error('Erro ao buscar cursos:', err);
@@ -117,8 +124,9 @@ Router.get('/api/getaulas/:id', async (req, res) => {
 
 
 // PEGAR APENAS UMA AULA DO CURSO X
-Router.get('/api/getaula/:cursoId/:aulaId', async (req, res) => {
-    const { cursoId, aulaId } = req.params; // Pega o ID da URL
+Router.get('/api/getaula/:cursoId/:aulaId/:usuarioId', async (req, res) => {
+    const { cursoId, aulaId, usuarioId } = req.params; // Pega o ID da URL
+    
 
     try {
         const curso = await Curso.findById(cursoId); // Busca o curso pelo ID
@@ -131,7 +139,12 @@ Router.get('/api/getaula/:cursoId/:aulaId', async (req, res) => {
             return res.status(404).json({ error: 'Aula não encontrada' }); // Retorna erro se a aula não for encontrada
         }
 
-        res.json(aula);
+        const usuario = await User.findById(usuarioId)
+        if (!usuario.listaCursos.includes(curso.idTrilhaPai)) {
+            return res.status(404).json({ error: 'Usuario não possue acesso a esta trilha' });
+        }
+
+        res.json(aula); 
     } catch (err) {
         console.error('Erro ao buscar aula:', err);
         res.status(500).json({ error: 'Erro ao buscar aula' });

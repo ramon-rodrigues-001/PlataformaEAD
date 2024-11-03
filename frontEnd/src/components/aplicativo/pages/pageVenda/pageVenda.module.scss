@@ -1,0 +1,150 @@
+// Variáveis de cor
+$primary-color: #ffb514;    // Azul suave
+$background-color: #807e7e10; // Fundo claro
+$text-color: #333;          // Cor do texto
+$border-color: #ddd;        // Borda sutil
+
+.salesPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  padding: 20px;
+  color: $text-color;
+  min-height: 80vh;
+  margin-bottom: 50px;
+  border-radius: 10px;
+
+
+  .cursoPrivado {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(93, 91, 91);
+  }
+
+  .apresentarCurso {
+    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    width: 100%;
+    min-height: 300px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    overflow: hidden;
+
+
+    .destricaoCurso {
+        max-width: 600px;
+        padding: 15px 0px 30px 0px;
+    }
+
+    .buttonConhecerCurso {
+        cursor: pointer;
+        font-weight: bold;
+        padding: 10px 30px;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        transition: .2s;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}
+
+.apresentarCurso::before {
+    content: '';
+    position: absolute; /* Para cobrir toda a área do elemento pai */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black url('/imagemCursoPython.jpg') center center no-repeat;
+    background-size: cover;
+    filter: blur(6px); /* Ajuste o valor para aumentar ou diminuir o desfoque */
+    z-index: 0; /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+
+.apresentarCurso > * {
+    position: relative; /* Para garantir que o conteúdo fique acima do pseudo-elemento */
+    z-index: 1; /* O conteúdo fica acima do fundo desfocado */
+}
+
+
+
+
+
+  .sectionTitle {
+    font-size: 2em;
+    color: rgb(113, 111, 111);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .cardsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .courseCard {
+    background-color: #fff;
+    border: 1px solid $border-color;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .courseImage {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .courseTitle {
+      font-size: 1.3em;
+      color: $text-color;
+      margin-bottom: 8px;
+    }
+
+    .courseDescription {
+      font-size: 1em;
+      color: darken($text-color, 15%);
+      margin-bottom: 15px;
+    }
+
+    .valor {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .buyButton {
+      padding: 10px 20px;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

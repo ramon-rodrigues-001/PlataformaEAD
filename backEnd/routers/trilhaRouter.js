@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose')
 const Trilha = require ('../models/trilhas')
 const express = require('express')
 const Router = express.Router()
@@ -32,9 +33,16 @@ Router.get('/api/gettrilhas', async (req, res) => {
 
 // PEGAR UMA TRILHA
 Router.get('/api/gettrilha/:id', async (req, res) => { 
+    const { id } = req.params 
+
+    // Verificar se o ID é um ObjectId válido
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'ID inválido' });
+    }
+
     try {
-        const trilhas = await Trilha.find();
-        res.json(trilhas); 
+        const trilha = await Trilha.findById(id)
+        res.json(trilha); 
     } catch (err) {
         console.error('Erro ao buscar trilhas:', err);
         res.status(500).json({ error: 'Erro ao buscar trilhas' });

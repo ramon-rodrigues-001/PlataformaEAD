@@ -11,6 +11,7 @@ import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
 import PageAnotacao from './components/aplicativo/pages/pageAnotacao/pageAnotacao';
+import PageVenda from './components/aplicativo/pages/pageVenda/pageVenda';
 
 
 export default function App() {
@@ -69,6 +70,10 @@ export default function App() {
 
                                 <Route path="/noticias" element={
                                     < Noticias tema={tema} />
+                                }/>
+
+                                <Route path="/pagevenda/:id?" element={
+                                    <PageVenda/>
                                 }/>
 
                                 <Route path="/perfil" element={

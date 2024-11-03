@@ -28,6 +28,29 @@ function TrilhasForm() {
                     <label for="nomeTrilha" className="form-label">Nome Da trilha de estudo</label>
                     <input type="text" className="form-control" id="nomeTrilha" placeholder="TRILHA (FULL-STACK)"/>
                 </div>
+
+                <div className="col-md-12">
+                    <label for="nomeTrilha" className="form-label">Nome Da trilha de estudo</label>
+                    <input type="text" className="form-control" id="nomeTrilha" placeholder="TRILHA (FULL-STACK)"/>
+                </div>
+
+                <div className="col-md-3">
+                    <label for="precoAntigo" className="form-label">Preço com Promoção</label>
+                    <input type="number" className="form-control" id="precoAntigo" placeholder="100"/>
+                </div>
+
+                <div className="col-md-3">
+                    <label for="desconto" className="form-label">Desconto %</label>
+                    <input type="text" className="form-control" id="desconto" placeholder="10%"/>
+                </div>
+
+                <div className="col-md-3">
+                    <label for="nomeTrilha" className="form-label">Preço Atual</label>
+                    <input type="text" className="form-control" id="nomeTrilha" value={
+                        document.querySelector('#nomeTrilha').value - Number(document.querySelector('#desconto').value)
+                    }/>
+                </div>
+
                 <div className="col-12">
                     <button type="submit" className="btn btn-primary">Criar trilha</button>
                 </div>

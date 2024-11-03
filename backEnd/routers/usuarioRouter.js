@@ -49,7 +49,8 @@ router.post("/api/register", async (req, res) => {
                 email: email, 
                 senha: password,
                 telefone: telefone,
-                data: formattedDate
+                data: formattedDate,
+                rule: 'Membro',
             })
             try {
                 newUser.save()

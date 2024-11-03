@@ -1,13 +1,16 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import styles from "./PlayAula.module.scss";
 import { useEffect, useState } from "react";
 
 function PlayAula(props) {
   const tema = props.tema;
+  const usuarioId = localStorage.getItem('userID')
+  const { id } = useParams();
+
   const [loading, setLoading] = useState(true);
   const [curso, setCurso] = useState({});
   const [aula, setAula] = useState(null); // Aula começa como null
-  const { id } = useParams();
+  const [cursoNaoComprado, setCursoNaoComprado] = useState(false)
   const [cursoId, setCursoId] = useState(
     id || localStorage.getItem('idUltimoCurso')
   );
@@ -30,14 +33,19 @@ function PlayAula(props) {
     const aulaid = event.currentTarget.dataset.idAula;
 
     try {
-      const response = await fetch(`http://localhost:4000/api/getaula/${cursoId}/${aulaid}`, {
+      const response = await fetch(`http://localhost:4000/api/getaula/${cursoId}/${aulaid}/${usuarioId}`, {
         method: "GET",
       });
+
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
         setAula(data); // Definimos a aula que o usuário escolheu
-      } else {
-        console.error("Erro ao buscar aula:");
+      }
+      else {
+        setCursoNaoComprado(true)
+        // window.location.href = "http://localhost:5173/pagevenda/";
+        console.error("Erro ao buscar aula: " + data.error);
       }
     } catch (erro) {
       console.error("Erro no fetch:", erro);
@@ -50,7 +58,7 @@ function PlayAula(props) {
   // Função para pegar o curso que foi escolhido
   const fetchCurso = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/getcurso/${cursoId}`, {
+      const response = await fetch(`http://localhost:4000/api/getcurso/${cursoId}/${usuarioId}`, {
         method: "GET",
       });
       if (response.ok) {
@@ -62,6 +70,7 @@ function PlayAula(props) {
           setAula(data.aulas[0]); // Definimos a primeira aula do curso
         }
       } else {
+        setCursoNaoComprado(true)
         console.error("Erro ao buscar cursos:", response.statusText);
       }
     } catch (err) {
@@ -83,10 +92,16 @@ function PlayAula(props) {
 
   
 
-  if (loading) return <div>Carregando...</div>; // Esperar o código compilar
+  if (loading) return (
+    <div className={styles.sectionPlayAula}>Carregando...</div> ) // Loading
+  // if (cursoNaoComprado) 
+  //   <Navigate to="pagevenda/" replace />
 
   return (
     <div className={styles.sectionPlayAula} id={tema === "Escuro" ? styles.temaDark : null}>
+      
+    {cursoNaoComprado && <Navigate to={`/pagevenda/${cursoId}`} replace />}
+
       <div className={styles.background}>
         {/* Welcome */}
         <div className={styles.welcome}>
