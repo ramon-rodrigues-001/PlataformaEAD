@@ -154,7 +154,7 @@ function PlayAula(props) {
           {/* Próximas aulas */}
           <div className={styles.container_proxima_aula}>
             <div className={styles.proximasAulas}>
-              <p className={styles.tipoDePublication}>Próximos</p>
+              <p className={styles.tipoDePublication}>Aulas</p>
               {/* <p>Proxiamas aulas</p> */}
 
               {curso.aulas && curso.aulas.length > 0 ? (

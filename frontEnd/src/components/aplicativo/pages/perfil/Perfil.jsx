@@ -135,7 +135,7 @@ function Perfil() {
                     </div>
 
                     
-                    <span className={styles.coin}>0💎</span>
+                    <span className={styles.coin}>13 💰</span>
 
 
 

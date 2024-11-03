@@ -25,11 +25,9 @@ export default function Register(props) {
                 body: JSON.stringify(formData),
             });
 
-            
             const responseData = await response.json()
 
-      
-            if (response.status === 200) {
+            if (response.ok) {
               alert("Registro bem-sucedido")
               localStorage.setItem('userID', responseData.userID)
               localStorage.setItem('login', 'Logado')
@@ -39,20 +37,12 @@ export default function Register(props) {
               let newURL = currentURL.substring(0, currentURL.lastIndexOf('/'));
               window.location.href = newURL;
             } 
-            else {
-                
-                if (responseData.message === "o apelido do usuário já existe") {
-                    alert('Apelido repetido')
-                }
-                else if (responseData.message === "o email do usuário já existe") {
-                    alert('Email repetido')
-                }
-                else if (responseData.message === "requisito minimo de caracteres") {
-                    alert('Senha sem requisito minimo de caracteres')
-                }
-                else {
-                    alert('Erro desconhecido')
-                }
+
+            if (response.status === 400) {
+                alert(responseData.message)
+            }
+            else if (response.status === 409) {
+                alert(responseData.message)
             }
         } 
         catch (error) {

@@ -32,12 +32,16 @@ $border-color: #ddd;        // Borda sutil
     align-items: center;
     color: white;
     text-align: center;
-    padding: 5px 10px;
+    padding: 40px 20px;
     width: 100%;
     min-height: 300px;
     margin: 20px 0px;
     border-radius: 5px;
     overflow: hidden;
+
+    h1 {
+        color: $primary-color;
+    }
 
 
     .destricaoCurso {
@@ -67,9 +71,9 @@ $border-color: #ddd;        // Borda sutil
     left: 0;
     right: 0;
     bottom: 0;
-    background: black url('/imagemCursoPython.jpg') center center no-repeat;
+    background: black url('/imagemDeFundoVenda2.png') top center no-repeat;
     background-size: cover;
-    filter: blur(6px); /* Ajuste o valor para aumentar ou diminuir o desfoque */
+    filter: blur(0px); /* Ajuste o valor para aumentar ou diminuir o desfoque */
     z-index: 0; /* Coloca o pseudo-elemento atrás do conteúdo */
 }
 
@@ -132,19 +136,39 @@ $border-color: #ddd;        // Borda sutil
         font-family: Arial, Helvetica, sans-serif;
         font-size: 1em;
         font-weight: bold;
+        padding-bottom: 20px;
     }
 
     .buyButton {
-      padding: 10px 20px;
-      background-color: $primary-color;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+        display: inline-block;
+        width: 100%;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 20px;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
 
       &:hover {
         background-color: darken($primary-color, 10%);
       }
     }
   }
+}
+
+
+@media screen and (max-width: 570px) {
+    .salesPage {
+      .apresentarCurso {
+        padding: 10px 0px;
+      }
+    }
+    
+    .apresentarCurso::before {
+        content: '';
+        display: none;
+    }
 }

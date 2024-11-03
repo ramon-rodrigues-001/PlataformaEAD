@@ -75,7 +75,7 @@ function PageVenda() {
                     {/* Agora eu quro uma section de intodução ao curso uma home na div abaixo */}
                     <div className={styles.apresentarCurso}>
                         <h1>{trilha.nomeTrilha}</h1>
-                        <p className={styles.destricaoCurso}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni necessitatibus accusantium illum similique dolores eum ducimus, repellendus consequuntur. Incidunt, architecto.</p>
+                        <p className={styles.destricaoCurso}>{trilha.descritionTrilha}</p>
                         <button className={styles.buttonConhecerCurso}>Conhecer Curso</button>
                     </div>
 
@@ -86,16 +86,25 @@ function PageVenda() {
                         <div className={styles.courseCard}>
                             <h3 className={styles.courseTitle}>Plano Vitalicio</h3>
                             <p className={styles.courseDescription}>Tenha o curso para sempre, com apenas um pagamento.</p>
-                            <p className={styles.valor}><s>R$150</s>  R$100</p> <br />
-                            <button className={styles.buyButton}>Comprar</button>
+                            <p className={styles.courseDescription}>+ 6 CachCoins</p>
+                            <p className={styles.valor}>
+                                {trilha.precoAntigo ? (
+                                    <s>R${trilha.precoAntigo}</s>
+                                ) : (null)} R${trilha.precoAtual},00
+                            </p>
+                            <a href='https://pay.hotmart.com/J95838219S?bid=1730658345518' target='_blank' className={styles.buyButton}>Comprar</a>
                         </div>
 
 
                         <div className={styles.courseCard}>
                             <h3 className={styles.courseTitle}>Plano Mensalidade</h3>
                             <p className={styles.courseDescription}>Aproveite oa maximo, e cancele quando quizer.</p>
+                            <p className={styles.courseDescription}>+ 3 CachCoins</p>
                             
-                            <p className={styles.valor}>R$20 mensal</p> <br />
+                            <p className={styles.valor}>
+                                R${trilha.precoAtual / 5},00
+                            </p>
+
                             <button className={styles.buyButton}>Assinar</button>
                         </div>
 
@@ -103,7 +112,8 @@ function PageVenda() {
                         <div className={styles.courseCard}>
                             <h3 className={styles.courseTitle}>CashCoins</h3>
                             <p className={styles.courseDescription}>Comprar com moedas de contribuição.</p>
-                            <p className={styles.valor}>100 CashCoins</p> <br />
+                            <br /> <br />
+                            <p className={styles.valor}>{trilha.precoAntigo} CashCoins</p>
                             <button className={styles.buyButton}>Comprar</button>
                         </div>
                     </div>

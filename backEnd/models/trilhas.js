@@ -5,6 +5,22 @@ const trilhaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    descritionTrilha: {
+        type: String,
+        required: true
+    },
+    precoAntigo: {
+        type: Number || String,
+        required: false
+    },
+    desconto: {
+        type: Number || String,
+        required: false
+    },
+    precoAtual: {
+        type: Number || String,
+        required: true
+    },
     cursosIDs: [{
         type: String
     }]

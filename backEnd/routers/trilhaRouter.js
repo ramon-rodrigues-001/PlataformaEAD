@@ -6,12 +6,12 @@ const Router = express.Router()
 
 // CRIAR TRILHA
 Router.post('/api/addtrilha', (req, res) => { 
-    const nomeTrilha = req.body
+    const {nomeTrilha, descritionTrilha, precoAntigo, desconto, precoAtual} = req.body
 
     try {
-        const newTrilha = new Trilha( nomeTrilha )
-        console.log(nomeTrilha)
+        const newTrilha = new Trilha({ nomeTrilha, descritionTrilha, precoAntigo, desconto, precoAtual })
         newTrilha.save()
+        console.log('Trilha Criada.')
         // res.status(200)
     } catch(erro) {
         console.log('erro ao criar a trilha de curso: ' + erro)
