@@ -63,7 +63,7 @@ header {
         li {
             text-align: center;
             font-weight: bold;
-            font-size: 1.5em;
+            font-size: 1.4em; 
             transition: .5s;
 
             a {
@@ -78,13 +78,13 @@ header {
 
             &::before {
                 position: absolute;
-                font-size: .46em;
+                font-size: .49em;
                 bottom: -90%;
                 left: 50%;
                 transform: translateX(-55%);
                 background-color: #000000bc;
                 color: #fff;
-                padding: 4px 20px;
+                padding: 4px 15px;
                 border-radius: 5px;
                 border: solid 1px rgba(255, 255, 255, 0.401);
                 opacity: 0; 
@@ -120,7 +120,7 @@ header {
                 }
             }
             &#perfil {
-                font-size: 1.7em;
+                font-size: 1.6em;
                 &::before {
                     content: "Perfil";
                 }

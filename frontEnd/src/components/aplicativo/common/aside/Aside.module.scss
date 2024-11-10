@@ -76,8 +76,8 @@
     .cardsAnotacao {
         display: flex;
         justify-content: space-between;
-        font-weight: bolder;
-        padding: 5px 10px;
+        // font-weight: bolder;
+        padding: 6px;
         border: solid 1px transparent;
         margin-top: 10px;
         border-radius: 5px;
@@ -86,18 +86,12 @@
         text-decoration: none;
 
         .informationsAnotacao{
+            // display: none;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-left: 10px;
+            gap: 5px;
+            padding-left: 3px;
 
-            // .spanOffOn {
-            //     display: inline-block;
-            //     width: 10px;
-            //     height: 10px;
-            //     border-radius: 50%;
-            //     background-color: red;
-            // }
 
             i {
                 padding: 0px 3px 0px 10px;
@@ -106,16 +100,7 @@
                 &:hover {
                     scale: 1.4;
                 }
-            }
-
-            // .spanMsg {
-            //     font-size: .8em;
-            //     background-color: #00bcd4;
-            //     border-radius: 40% 50% 50% 1%;
-            //     padding: 2px 5px;
-            // }
-
-            
+            }            
         }
 
         &:hover {
@@ -136,7 +121,8 @@
         height: 8px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 50px;
+        background-color: rgba(111, 110, 110, 0.441);
     }
 }
 

@@ -34,7 +34,11 @@ function Header(props) {
           </li>
           
           <li id={styles.mudarTema} onClick={mudarTema}>
-            <i class="bi bi-brightness-high-fill"></i>
+            {tema == 'Escuro' ? (
+              <i class="bi bi-moon-stars-fill"></i>
+            ): (
+              <i class="bi bi-brightness-high-fill"></i>
+            )}
           </li>
         </ul>
 

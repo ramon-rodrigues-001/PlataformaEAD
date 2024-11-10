@@ -71,8 +71,9 @@ $border-color: #ddd;        // Borda sutil
     left: 0;
     right: 0;
     bottom: 0;
-    background: black url('/imagemDeFundoVenda2.png') top center no-repeat;
-    background-size: cover;
+    // background: black url('/imagemDeFundoVenda2.png') top center no-repeat;
+    // background-size: cover;
+    background-color: rgb(29, 29, 29);
     filter: blur(0px); /* Ajuste o valor para aumentar ou diminuir o desfoque */
     z-index: 0; /* Coloca o pseudo-elemento atrás do conteúdo */
 }
