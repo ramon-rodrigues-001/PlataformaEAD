@@ -99,9 +99,10 @@
 }
 
 
-.add-curse {
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    font-weight: 400;
+
+.del-and-add-curse {
+ font-weight: bold;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }

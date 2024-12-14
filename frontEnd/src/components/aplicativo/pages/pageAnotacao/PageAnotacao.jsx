@@ -1,74 +1,70 @@
-import { useParams } from 'react-router-dom'
-import styles from './pageAnotacao.module.scss'
-import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
+import styles from './pageAnotacao.module.scss';
+import { useEffect, useState } from 'react';
 
 function PageAnotacao() {
-    const [ anotacaoEncontrada, setAnotacaoEncontrada ] = useState(null)
-    const [ loding, setLoding ] = useState(true)
-    const { idAnotacao } = useParams()
-    const idUser = localStorage.getItem('userID')
-
+    const [anotacaoEncontrada, setAnotacaoEncontrada] = useState(null);
+    const [loding, setLoding] = useState(true);
+    const { idAnotacao } = useParams();
+    const idUser = localStorage.getItem('userID');
+    const navigate = useNavigate(); // Para redirecionamento
 
     // Pegar anotação selecionada
     const fetchAnotacaoCompleta = async () => {
         try {
-            // MUDAR URL ABAIXO
             const response = await fetch(`http://localhost:4000/api/pegaranotacao/${idUser}/${idAnotacao}`, {
-                method: 'GET'
+                method: 'GET',
             });
-    
-            if (!response) {
+
+            if (!response.ok) {
                 console.log('Erro ao buscar a anotação');
             } else {
                 const data = await response.json();
-                setAnotacaoEncontrada(data)
+                setAnotacaoEncontrada(data);
             }
         } catch (error) {
             console.error('Erro na requisição:', error);
         }
-
-        setLoding(false)
+        setLoding(false);
     };
-    
+
     useEffect(() => {
         fetchAnotacaoCompleta();
     }, []);
 
-
-
     // Apagar anotação
     const deleteAnotacao = async () => {
         try {
-            console.log(idUser, idAnotacao)
-            // MUDAR URL ABAIXO
             const response = await fetch(`http://localhost:4000/api/apagarnota/${idUser}/${idAnotacao}`, {
-            method: 'DELETE',
+                method: 'DELETE',
             });
-            
-            const result = await response.json();
-            setAnotacaoEncontrada(result.usuario.anotacao[0])
+
+            if (response.ok) {
+                // Redireciona para a página inicial após apagar
+                navigate('/');
+            } else {
+                console.error('Erro ao deletar anotação');
+            }
         } catch (error) {
             console.error('Erro ao deletar anotação:', error);
-            setAnotacaoEncontrada({tituloAnotation: 'Anotação apagada...'})
         }
     };
-    
-          
-    
 
+    if (loding) {
+        return <p>Carregando...</p>;
+    }
 
-
-    if (loding) {return( <p>Carregando...</p> )}
     return (
         <div className={styles.containerAnotacaoCompleta}>
             <div className={styles.headerAnotacao}>
-                <h2>{anotacaoEncontrada.tituloAnotation}</h2>
-                <h3 onClick={deleteAnotacao}><i class="bi bi-trash3-fill"></i></h3>
+                <h2>{anotacaoEncontrada?.tituloAnotation || 'Anotação não encontrada'}</h2>
+                <h3 onClick={deleteAnotacao}>
+                    <i className="bi bi-trash3-fill"></i>
+                </h3>
             </div>
-            
-            <p>{anotacaoEncontrada.descritionAnotation}</p>
+            <p>{anotacaoEncontrada?.descritionAnotation || 'Descrição indisponível'}</p>
         </div>
-    )
+    );
 }
 
-export default PageAnotacao
+export default PageAnotacao;

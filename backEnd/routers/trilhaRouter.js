@@ -1,5 +1,6 @@
 const { default: mongoose } = require('mongoose')
 const Trilha = require ('../models/trilhas')
+const { Curso } = require('../models/cursos')
 const express = require('express')
 const Router = express.Router()
 
@@ -18,6 +19,7 @@ Router.post('/api/addtrilha', (req, res) => {
     }
  })
 
+
  
 // PEGAR TRILHAS
 Router.get('/api/gettrilhas', async (req, res) => { 
@@ -29,6 +31,7 @@ Router.get('/api/gettrilhas', async (req, res) => {
         res.status(500).json({ error: 'Erro ao buscar trilhas' });
     }
 })
+
 
 
 // PEGAR UMA TRILHA
@@ -73,6 +76,52 @@ Router.post('/api/:id/adicionarIDCurso', async (req, res) => {
         res.status(500).send('Erro ao adicionar curso: ' + error.message);
     }
 })
+
+
+
+
+
+// APAGAR TRILHA E DE BRINDE TODOS OS CURSOS E AULAS DELA
+Router.delete('/api/deletarTrilha/:idTrilha', async (req, res) => {
+    const idTrilha = req.params.idTrilha;
+
+    try {
+        // 1. Encontrar a trilha pelo ID
+        const getTrilha = await Trilha.findById(idTrilha);
+        if (!getTrilha) {
+            return res.status(404).json({ message: 'Trilha não encontrada' });
+        }
+
+        // 2. Obter os IDs dos cursos associados à trilha
+        const getCursosChild = getTrilha.cursosIDs;
+        
+        // 3. Apagar os cursos associados à trilha
+        const deleteCursos = await Curso.deleteMany({
+            _id: { $in: getCursosChild }
+        });
+
+        // 5. Apagar a trilha
+        const deleteTrilha = await Trilha.findByIdAndDelete(idTrilha);
+
+        // 6. Verificar se a trilha foi apagada com sucesso
+        if (!deleteTrilha) {
+            return res.status(404).json({ message: 'Erro ao deletar a trilha' });
+        }
+
+        // 7. Retornar resposta com sucesso
+        res.json({
+            message: 'Trilha, cursos e aulas deletados com sucesso',
+        });
+
+    } catch (error) {
+        console.error('Erro ao deletar trilha e cursos:', error);
+        res.status(500).json({ message: 'Erro interno ao deletar a trilha e cursos' });
+    }
+});
+
+
+
+
 
 
 

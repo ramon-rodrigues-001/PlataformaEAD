@@ -25,10 +25,35 @@ function Cursos() {
     }
   };
 
+
+  // Função para apagar trilha
+  const deleteTrilha = () => {
+    if (prompt('Tem Certeza? digite (apagar)') === 'apagar' || 'Apagar' || 'APAGAR') {
+      try {
+        const response = fetch(`http://localhost:4000/api/deletarTrilha/${id}`, {
+          method: 'DELETE'
+        })
+        const data = response.json()
+  
+        if (data.ok) {
+          console.log('TRILHA APAGADA COM SUCESSO ..... ' + data.message)
+        }
+      }
+      catch {
+        console.log('ERRO AO APAGAR TRILHA ..... ')
+      }
+    }
+  }
+
   // Usa useEffect para buscar os cursos assim que o componente for montado
   useEffect(() => {
     fetchCursos();
   }, []);
+
+
+
+
+
 
   return (
     <div className="container_cards">
@@ -36,10 +61,15 @@ function Cursos() {
         <p>Carregando...</p>
       ) : (
         <>
+
+        
           {/* Botão para adicionar um novo curso */}
+          <div className="curse del-and-add-curse" onClick={deleteTrilha}>
+              Apagar Trilha
+          </div>
           <a href={`/curses/newCurse/${id}`}>
-            <div className="curse add-curse">
-              +
+            <div className="curse del-and-add-curse">
+              Criar Curso
             </div>
           </a>
 

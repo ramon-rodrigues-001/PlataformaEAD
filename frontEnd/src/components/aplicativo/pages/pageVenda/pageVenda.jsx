@@ -102,7 +102,7 @@ function PageVenda() {
                             <p className={styles.courseDescription}>+ 3 CachCoins</p>
                             
                             <p className={styles.valor}>
-                                R${trilha.precoAtual / 5},00
+                                R${trilha.precoAtual / 5},00 / Mes
                             </p>
 
                             <button className={styles.buyButton}>Assinar</button>

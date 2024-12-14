@@ -12,7 +12,7 @@ function Aside(props) {
   // Criar nova anotação
   const newNota = async () => {
     const tituloAnotation = prompt('Título da nota:');
-    const descritionAnotation = prompt('Discrição da nota:');
+    const descritionAnotation = tituloAnotation ? prompt('Discrição da nota:') : null
 
     if (tituloAnotation) {
       try {
