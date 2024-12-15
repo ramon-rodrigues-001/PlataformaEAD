@@ -89,8 +89,8 @@ function PageVenda() {
                             <p className={styles.courseDescription}>+ 6 CachCoins</p>
                             <p className={styles.valor}>
                                 {trilha.precoAntigo ? (
-                                    <s>R${trilha.precoAntigo}</s>
-                                ) : (null)} R${trilha.precoAtual},00
+                                    <s>R${trilha.precoAntigo.toFixed(2).replace('.', ',')}</s>
+                                ) : (null)} R${trilha.precoAtual.toFixed(2).replace('.', ',')}
                             </p>
                             <a href='https://pay.hotmart.com/J95838219S?bid=1730658345518' target='_blank' className={styles.buyButton}>Comprar</a>
                         </div>
@@ -102,7 +102,7 @@ function PageVenda() {
                             <p className={styles.courseDescription}>+ 3 CachCoins</p>
                             
                             <p className={styles.valor}>
-                                R${trilha.precoAtual / 5},00 / Mes
+                                R${(trilha.precoAtual / 5).toFixed(2).replace('.', ',')} / Mes
                             </p>
 
                             <button className={styles.buyButton}>Assinar</button>
