@@ -5,13 +5,43 @@ function Noticias(props) {
 
   return (
     <div className={styles.divNoticias} id={tema === 'Escuro' ? styles.temaDark : null}>
-      <h1>Noticias</h1>
+      <div className={styles.container}>
+        <div className={styles.asideComunidade}>
+          <h2>Comunidade</h2>
 
-      <div className={styles.containerDeNoticias}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkiENcfzewm0pudNUc6Dza8a2sXr3YXzrAMQ&s" alt="em contrução" />
-        <div>
-          <h3>Em breve!</h3>
-          <p>Esta página trará as últimas novidades educacionais e curiosidades do mundo, mantendo você sempre bem informado.</p>
+          <div>
+            <p className={styles.subTitleAside}>
+              <i class="bi bi-collection-fill"></i> Feed
+            </p>
+            <p className={styles.optionsAside}>
+              <i class="bi bi-collection"></i> Feed ( Global )
+            </p>
+            <p className={styles.optionsAside}>
+              <i class="bi bi-collection"></i> Feed ( Adiministrado )
+            </p>
+          </div>
+
+          <div>
+            <p className={styles.subTitleAside}>
+              <i class="bi bi-people-fill"></i>
+            Chat Amigo
+            </p>
+            
+            <p className={styles.optionsAside}><i class="bi bi-chat-square-dots-fill"></i> Ramon Rodrigues</p>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div className={styles.mainComunidade}>
+          <div className={styles.headUserOnline}>Feed ( Global )</div>
+          <div className={styles.containerChat}>
+            EM BREVE!
+          </div>
         </div>
       </div>
     </div>
