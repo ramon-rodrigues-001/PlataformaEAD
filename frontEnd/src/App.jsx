@@ -53,9 +53,14 @@ export default function App() {
                 < Header mudarTema={mudarTema} tema={tema} ocultarAside={ocultarAside}/>
 
                 <main className={styles.main} >
-                    <div className={styles.containerAsideDaEsquerda}>
-                        < Aside /> 
-                    </div>
+                    {
+                        !window.location.href.includes("noticias") && (
+                            <div className={styles.containerAsideDaEsquerda}>
+                                < Aside /> 
+                            </div>
+                        )
+                    }
+                    
 
                     <div className={styles.containerVitrineDaDireita}>
                         <BrowserRouter>

@@ -117,25 +117,34 @@ function Perfil() {
                     </div>
 
 
-                    <div className={styles.descricaoDoUsuario}>
-                        <p className={styles.nome}>{dadosDoUsuario.nome}</p>
-                        <p className={styles.data}><i class="bi bi-calendar"></i> Membro desde {dadosDoUsuario.data}</p>
 
+                    <div className={styles.descricaoDoUsuario}>
+                        <p className={styles.nome}>
+                            {dadosDoUsuario.nome}
+                        </p>
+                        <p className={styles.data}>
+                            <i class="bi bi-calendar"></i> Membro desde {dadosDoUsuario.data}
+                        </p>
                         
+
+                        {/* <p className={styles.titleTeg}>Tegs: </p>        */}
                         <span className={styles.spanClasse} id={styles.membro}>
                         <i class="bi bi-person-check-fill"></i> {dadosDoUsuario.rule === 'admin' ? ('Adiministrador'): ('Membro')}
                         </span>
 
-                        
                         {nomesTrilhasCompradas.map(nome => (
                             <span className={styles.spanTeg}>
                                 <i class="bi bi-star-fill"></i> {nome.nomeTrilha}
                             </span >
                         ))}
-                    </div>
 
-                    
-                    <span className={styles.coin}>13 💰</span>
+                        <br /><br />
+                        <p>Pontos: <span className={styles.coin}>13 💰</span> </p>
+
+                        <br /><br />
+                        <a href="#" className={styles.redesSociais}>GitHub</a>
+                        <a href="#" className={styles.redesSociais}>Linkedin</a>
+                    </div>
 
 
 
