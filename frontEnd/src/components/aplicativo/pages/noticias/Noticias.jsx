@@ -23,11 +23,10 @@ function Noticias(props) {
 
           <div>
             <p className={styles.subTitleAside}>
-              <i class="bi bi-people-fill"></i>
-            Chat Amigo
+              <i class="bi bi-people-fill"></i> Chat Amigo
             </p>
             
-            <p className={styles.optionsAside}><i class="bi bi-chat-square-dots-fill"></i> Ramon Rodrigues</p>
+            <p className={styles.optionsAside}><i class="bi bi-chat-square-dots-fill"></i> Adiministrador</p>
           </div>
         </div>
 
@@ -38,9 +37,31 @@ function Noticias(props) {
 
 
         <div className={styles.mainComunidade}>
-          <div className={styles.headUserOnline}>Feed ( Global )</div>
+          <div className={styles.headUserOnline}>
+            <p>Feed ( Global )</p>
+
+            <button className={styles.newPublication}>Nova publicação</button>
+          </div>
+
+
           <div className={styles.containerChat}>
-            EM BREVE!
+            <div className={styles.publicationFeed}>
+              <p className={styles.nomePublicador}>Ramon Rodrigues</p>
+              <h3>LoRa tecnologia de comunicação a radio</h3>
+              <p className={styles.nomePublicador}>10 pontos . 1 comentario . 1 mes atras</p>
+            </div>
+
+            <div className={styles.publicationFeed}>
+              <p className={styles.nomePublicador}>Professor Arthur</p>
+              <h3>[HELP] Gateway de pagamento que seja possivel enviar metadata</h3>
+              <p className={styles.nomePublicador}>1 pontos . 0 comentario . 1 mes atras</p>
+            </div>
+
+            <div className={styles.publicationFeed}>
+              <p className={styles.nomePublicador}>Zaqueu655</p>
+              <h3>📝 Documentação de APIs com Scalar!</h3>
+              <p className={styles.nomePublicador}>1 pontos . 0 comentario . 1 mes atras</p>
+            </div>
           </div>
         </div>
       </div>

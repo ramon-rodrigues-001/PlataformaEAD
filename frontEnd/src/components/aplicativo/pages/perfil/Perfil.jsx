@@ -139,9 +139,9 @@ function Perfil() {
                         ))}
 
                         <br /><br />
-                        <p>Pontos: <span className={styles.coin}>13 💰</span> </p>
+                        <p>Pontos: <br /><br /><span className={styles.coin}>13 💰</span> </p>
 
-                        <br />
+                        <br />Redes Social<br /> <br />
                         <a href="#" className={styles.redesSociais}><i class="bi bi-github"></i> GitHub</a>
                         <a href="#" className={styles.redesSociais}><i class="bi bi-linkedin"></i> Linkedin</a>
                     </div>
