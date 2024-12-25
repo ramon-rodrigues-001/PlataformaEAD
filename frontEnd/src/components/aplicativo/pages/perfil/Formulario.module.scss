@@ -1,24 +1,8 @@
-@import "../../../../styles/Cores.module.scss";
-
-@keyframes piscaAviso {
-    0% {
-        box-shadow: 0px 0px 2px rgba(255, 0, 0, 0.184);
-    }
-    25% {
-        box-shadow: 0px 0px 2px rgba(255, 0, 0, 0.218);
-    }
-    50% {
-        box-shadow: 0px 0px 150px rgba(255, 0, 0, 0.584);
-    }
-}
-
-
 .formulario {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 50%;
-    min-height: 89.5vh;
+    min-height: 87.5vh;
     margin: 10px auto 30px auto;
 
     &#temaDark {
@@ -37,65 +21,98 @@
 }
 
 
+// @media screen and (max-width: 500px) {
+//     .formulario {
+//         max-width: 90%;
+//         margin: 10px auto;
+//     }
+// }
 
-.title {
-    text-align: center;
-    color: $itens_Pretos;
-    margin-bottom: 20px;
-}
 
-.inputContainer {
-    display: inline-block;
+
+
+
+
+
+
+
+$form-bg: #3d3d3d;
+$text-color: white;
+$highlight-color: rgb(0, 255, 225);
+$highlight-hover: rgb(1, 200, 177);
+
+.form_container {
+    background: $form-bg;
+    color: $text-color;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-top: -20px;
 
-    .label {
-        display: block;
-        margin-bottom: 10px;
-        color: $itens_Pretos;
+    .registration_form {
+        h2 {
+            text-align: center; 
+            margin-bottom: 20px;
+            color: $highlight-color;
+        }
     }
-    
-    .input {
-        background-color: rgb(255, 255, 255);
-        border: solid 3px rgba(0, 0, 0, 0.584);
+
+    .form_group {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            /* color: #333; */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+
+            &:focus {
+                outline: none;
+                border-color: $highlight-color;
+            }
+        }
+    }
+
+    .submit_btn {
         width: 100%;
+        margin-top: 10px;
         padding: 10px;
+        background: $highlight-color;
+        border: none;
         border-radius: 5px;
+        font-weight: bold;
+        /* color: $text-color; */
         font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background: $highlight-hover;
+        }
     }
 
+    .login_link {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 14px;
 
-    .labelRadios {
-        padding: 0px 15px 0px 4px;
-    }
-}
+        a {
+            color: $highlight-color;
+            text-decoration: none;
 
-
-
-.buttonSubmit {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-    padding: 10px;
-    background-color: $itens_Pretos;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    margin: 10px 0px 3px 0px;
-
-    &:hover {
-        background-color: #555;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
-
-@media screen and (max-width: 500px) {
-    .formulario {
-        max-width: 90%;
-        margin: 10px auto;
-    }
-}
-

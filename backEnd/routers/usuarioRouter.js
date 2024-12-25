@@ -42,7 +42,7 @@ router.post("/api/register", async (req, res) => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
     const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(now);
 
-    const { username, email, password, telefone } = req.body;
+    const { username, email, password } = req.body;
 
     // Validação de senha
     if (password.length < 8) {
@@ -64,7 +64,6 @@ router.post("/api/register", async (req, res) => {
             nome: username,
             email,
             senha: hashedPassword,
-            telefone,
             data: formattedDate,
             rule: 'Membro',
         });

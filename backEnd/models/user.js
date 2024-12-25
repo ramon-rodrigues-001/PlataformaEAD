@@ -19,10 +19,6 @@ const userSchema = new mongoose.Schema({
             message: 'A senha deve ter no mínimo 8 caracteres.'
         }
     },
-    telefone: {
-        type: String,
-        required: true
-    },
     data: {
         type: String,
         required: true

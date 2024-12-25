@@ -30,7 +30,7 @@ function Header(props) {
             <a href="/assistir"><i class="bi bi-collection-play-fill"></i></a>
           </li>
           <li id={styles.noticias}>
-            <a href="/noticias"><i class="bi bi-newspaper"></i></a>
+            <a href="/noticias"><i class="bi bi-chat-dots-fill"></i></a>
           </li>
           
           <li id={styles.mudarTema} onClick={mudarTema}>

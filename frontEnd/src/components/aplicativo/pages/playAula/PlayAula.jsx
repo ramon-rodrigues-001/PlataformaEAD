@@ -33,7 +33,7 @@ function PlayAula(props) {
     const aulaid = event.currentTarget.dataset.idAula;
 
     try {
-      const response = await fetch(`http://localhost:4000/api/getaula/${cursoId}/${aulaid}/${usuarioId}`, {
+      const response = await fetch(`https://plataformaead-2.onrender.com/api/getaula/${cursoId}/${aulaid}/${usuarioId}`, {
         method: "GET",
       });
 
@@ -58,7 +58,7 @@ function PlayAula(props) {
   // Função para pegar o curso que foi escolhido
   const fetchCurso = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/getcurso/${cursoId}/${usuarioId}`, {
+      const response = await fetch(`https://plataformaead-2.onrender.com/api/getcurso/${cursoId}/${usuarioId}`, {
         method: "GET",
       });
       if (response.ok) {

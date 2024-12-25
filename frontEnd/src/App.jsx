@@ -55,8 +55,8 @@ export default function App() {
                 <main className={styles.main} >
                     {
                         !window.location.href.includes("noticias") && 
-                        !window.location.href.includes("login") && 
-                        !window.location.href.includes("register") && 
+                        // !window.location.href.includes("login") && 
+                        // !window.location.href.includes("register") && 
                         (
                             <div className={styles.containerAsideDaEsquerda}>
                                 < Aside /> 

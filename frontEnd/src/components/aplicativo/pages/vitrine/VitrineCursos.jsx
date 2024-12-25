@@ -10,14 +10,14 @@ function VitrineCursos() {
 
   // PEGAR AS TRILHAS
   const fetchTrilhas = async () => {
-    const response = await fetch('http://localhost:4000/api/gettrilhas');
+    const response = await fetch('https://plataformaead-2.onrender.com/api/gettrilhas');
     if (response.ok) return await response.json();
     throw new Error("Erro ao buscar trilhas");
   };
 
   // PEGAR OS CURSOS
   const fetchCursos = async () => {
-    const response = await fetch('http://localhost:4000/api/getcursos');
+    const response = await fetch('https://plataformaead-2.onrender.com/api/getcursos');
     if (response.ok) return await response.json();
     throw new Error("Erro ao buscar cursos");
   };
@@ -25,7 +25,7 @@ function VitrineCursos() {
   // PEGAR O USUARIO LOGADO
   const fetchUsuario = async () => {
     const userID = localStorage.getItem('userID');
-    const response = await fetch(`http://localhost:4000/api/getUser/${userID}`);
+    const response = await fetch(`https://plataformaead-2.onrender.com/api/getUser/${userID}`);
     if (response.ok) return await response.json();
     throw new Error("Erro ao buscar usuário");
   };

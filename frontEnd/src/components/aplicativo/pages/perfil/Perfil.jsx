@@ -28,7 +28,7 @@ function Perfil() {
             const idsTrilhasDoUsuario = dadosDoUsuario.listaCursos
  
             try {
-                const response = await fetch(`http://localhost:4000/api/pegarTrilhasDoUsuario?ids=${idsTrilhasDoUsuario.join(',')}` , {
+                const response = await fetch(`https://plataformaead-2.onrender.com/api/pegarTrilhasDoUsuario?ids=${idsTrilhasDoUsuario.join(',')}` , {
                     method: 'GET'
                 }) 
                  
@@ -60,7 +60,7 @@ function Perfil() {
             }
 
             try {
-                const response = await fetch(`http://localhost:4000/api/getUser/${userID}`, { method: "GET" });
+                const response = await fetch(`https://plataformaead-2.onrender.com/api/getUser/${userID}`, { method: "GET" });
 
                 if (!response.ok) throw new Error('Erro na requisição: ' + response.status);
 

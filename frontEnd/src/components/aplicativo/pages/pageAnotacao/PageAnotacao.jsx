@@ -12,7 +12,7 @@ function PageAnotacao() {
     // Pegar anotação selecionada
     const fetchAnotacaoCompleta = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/api/pegaranotacao/${idUser}/${idAnotacao}`, {
+            const response = await fetch(`https://plataformaead-2.onrender.com/api/pegaranotacao/${idUser}/${idAnotacao}`, {
                 method: 'GET',
             });
 
@@ -35,7 +35,7 @@ function PageAnotacao() {
     // Apagar anotação
     const deleteAnotacao = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/api/apagarnota/${idUser}/${idAnotacao}`, {
+            const response = await fetch(`https://plataformaead-2.onrender.com/api/apagarnota/${idUser}/${idAnotacao}`, {
                 method: 'DELETE',
             });
 

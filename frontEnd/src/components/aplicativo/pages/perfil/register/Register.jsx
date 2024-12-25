@@ -1,8 +1,22 @@
+import { useState } from 'react'
 import styles from '../Formulario.module.scss'
-
+ 
 
 export default function Register(props) {
     const tema = props.tema
+    const [buttonSubmit, setButtonSubimit] = useState(false)
+
+
+    const verificarSenhaIguais = () => {
+        const Password = document.querySelector('#password').value
+        const confirmPassword = document.querySelector('#confirm-password').value
+
+        Password === confirmPassword || Password == '' || confirmPassword == '' ? 
+        setButtonSubimit(true) : 
+        setButtonSubimit(false)
+    }
+
+
 
     const handleSubmit = async ( event ) => {
         event.preventDefault()
@@ -10,14 +24,13 @@ export default function Register(props) {
         const username = event.target.username.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const telefone = event.target.telefone.value
 
-        const formData = {username, email, password, telefone}
+        const formData = {username, email, password}
         console.log(formData)
     
         try {
             // MUDAR URL ABAIXO
-            const response = await fetch("http://localhost:4000/api/register", {
+            const response = await fetch("https://plataformaead-2.onrender.com/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -55,9 +68,52 @@ export default function Register(props) {
 
     return (
         <div className={styles.formulario} id={tema === 'Escuro' ? styles.temaDark : null}>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit} className={styles.registration_form}> */}
+
+
+
+                <div className={styles.form_container}>
+                    <form onSubmit={handleSubmit} className={styles.registration_form}>
+                        <h2>Crie sua conta</h2>
+                        <div className={styles.form_group}>
+                            <label for="username">Nome</label>
+                            <input type="text" id="username" name='username' placeholder="Digite seu nome" required />
+                        </div>
+                        <div className={styles.form_group}>
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name='email' placeholder="Digite seu e-mail" required />
+                        </div>
+                        <div className={styles.form_group}>
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name='password' placeholder="Digite sua senha" onChange={verificarSenhaIguais} required />
+                        </div>
+
+                        <div className={styles.form_group}>
+                            <label for="confirm-password">Confirmar Senha</label>
+                            <input type="password" id="confirm-password" placeholder="Confirme sua senha" onChange={verificarSenhaIguais} required />
+                        </div>
+
+                        {buttonSubmit ? (
+                            <button type="submit" className={styles.submit_btn}>
+                                Registrar
+                            </button>
+                        ) : (
+                            <button disabled style={{ backgroundColor: "gray", cursor: "not-allowed" }} type="submit" className={styles.submit_btn}>
+                                Registrar
+                            </button>
+                        )}
+                        
+                        <p className={styles.login_link}>Já tem uma conta? <a href="/perfil/login">Faça login</a></p>
+                        </form>
+                </div>
+
+
+
+
+
+
                 
-                <h1 className={styles.title}>Welcome</h1>
+                {/* <h1 className={styles.title}>Welcome</h1>
                 <div className={styles.inputContainer}>
                     <label htmlFor="username" className={styles.label}>Nome completo</label>
                     <input type="text" id="username" name="username" placeholder="Ramon Rodrigues Cordeiro" required className={styles.input}/>
@@ -81,8 +137,8 @@ export default function Register(props) {
 
                 <button type="submit"  className={styles.buttonSubmit}>Entrar</button>
                 
-                <a href='/perfil/login' className={styles.buttonSubmit}>Já tenho uma conta</a>
-            </form>
+                <a href='/perfil/login' className={styles.buttonSubmit}>Já tenho uma conta</a> */}
+            {/* </form> */} 
         </div>
     )
 }

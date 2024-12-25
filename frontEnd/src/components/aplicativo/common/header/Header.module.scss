@@ -79,7 +79,7 @@ header {
             &::before {
                 position: absolute;
                 font-size: .49em;
-                bottom: -90%;
+                bottom: -100%;
                 left: 50%;
                 transform: translateX(-55%);
                 background-color: #000000bc;
@@ -111,7 +111,7 @@ header {
             }
             &#noticias {
                 &::before {
-                    content: "Noticías";
+                    content: "Comunidade";
                 }
             }
             &#mudarTema {

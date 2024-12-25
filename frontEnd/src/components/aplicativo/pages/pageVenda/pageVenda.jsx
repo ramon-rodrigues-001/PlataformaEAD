@@ -22,7 +22,7 @@ function PageVenda() {
 
         async function pegarIdTrilha() {
             try {
-                const response = await fetch(`http://localhost:4000/api/getcurso/${id}/${idUser}`, { method: 'GET' });
+                const response = await fetch(`https://plataformaead-2.onrender.com/api/getcurso/${id}/${idUser}`, { method: 'GET' });
                 
                 if (response !== null) {
                     const data = await response.json();
@@ -44,7 +44,7 @@ function PageVenda() {
     useEffect(() => {
         async function pegarTrilha() {
             try {
-                const response = await fetch(`http://localhost:4000/api/gettrilha/${idTrilha}`, { method: 'GET' });
+                const response = await fetch(`https://plataformaead-2.onrender.com/api/gettrilha/${idTrilha}`, { method: 'GET' });
 
                 if (response.ok) {
                     const data = await response.json();
