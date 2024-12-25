@@ -1,11 +1,27 @@
 // import { Link } from "react-router-dom"
 import styles from "./Header.module.scss"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Menu from "./menu/Menu"
 
 function Header(props) {
   const [menuActive, setMenuActive] = useState(false)
+  const [logado, setLogado] = useState(false)
   const {mudarTema, tema, ocultarAside} = props
+
+
+  // Testando de esta logado para desbloquear novas paginas
+  useEffect(() => {
+    const estadoDoLogin = localStorage.getItem('login')
+
+    if (estadoDoLogin == 'Logado') {
+      setLogado(true)
+    }
+    else {
+      setLogado(false)
+    }
+  }, [])
+
+
 
   const setMenu = () => {
     setMenuActive(!menuActive)
@@ -23,15 +39,36 @@ function Header(props) {
         </div>
 
         <ul>
-          <li id={styles.discontrair}>
-            <a href="/"><i class="bi bi-cup-hot-fill"></i></a>
-          </li>
-          <li id={styles.batePapo}>
-            <a href="/assistir"><i class="bi bi-collection-play-fill"></i></a>
-          </li>
-          <li id={styles.noticias}>
-            <a href="/noticias"><i class="bi bi-chat-dots-fill"></i></a>
-          </li>
+          {logado ? (
+            <>
+            <li id={styles.discontrair}> 
+              <a href="/" ><i class="bi bi-cup-hot-fill"></i></a>
+            </li>
+            <li id={styles.batePapo}>
+              <a href="/assistir"><i class="bi bi-collection-play-fill"></i></a>
+            </li>
+            <li id={styles.noticias}>
+              <a href="/noticias"><i class="bi bi-chat-dots-fill"></i></a>
+            </li>
+            </>
+          ): (
+            <>
+            <li id={styles.discontrair}> 
+              <a href="/" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-cup-hot-fill"></i></a>
+            </li>
+            <li id={styles.batePapo}>
+              <a href="/assistir" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-collection-play-fill"></i></a>
+            </li>
+            <li id={styles.noticias}>
+              <a href="/noticias" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-chat-dots-fill"></i></a>
+            </li>
+            </>
+            
+          )}
+          
+          
+          
+          
           
           <li id={styles.mudarTema} onClick={mudarTema}>
             {tema == 'Escuro' ? (

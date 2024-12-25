@@ -139,11 +139,11 @@ function Perfil() {
                         ))}
 
                         <br /><br />
-                        <p>Pontos: <br /><br /><span className={styles.coin}>13 💰</span> </p>
+                        <p>Pontos: <br /><br /><span className={styles.coin}>0 💰</span> </p>
 
-                        <br />Redes Social<br /> <br />
+                        {/* <br />Redes Social<br /> <br />
                         <a href="#" className={styles.redesSociais}><i class="bi bi-github"></i> GitHub</a>
-                        <a href="#" className={styles.redesSociais}><i class="bi bi-linkedin"></i> Linkedin</a>
+                        <a href="#" className={styles.redesSociais}><i class="bi bi-linkedin"></i> Linkedin</a> */}
                     </div>
 
 
@@ -186,7 +186,7 @@ function Perfil() {
                 </div>
 
                 <div className={styles.cntainer_buttons_perfil}>
-                    <button>Alterar Dados</button>
+                    <button onClick={()=> {alert('Esta opção ainda está sendo desenvolvida! 🚧')}}>Alterar Dados</button>
                     <button onClick={sairDaCorta}>Sair Desta Conta</button>
                 </div>
             </section>

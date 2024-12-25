@@ -147,7 +147,7 @@ function VitrineCursos() {
               
             })
           ) : (
-            <div>Nenhuma trilha de estudo encontrada.</div>
+            <div>Nenhuma trilha de estudo encontrada. <br/> Parece que você está tentando ser um espião sem registro! 😁</div>
           )
         )
       }
