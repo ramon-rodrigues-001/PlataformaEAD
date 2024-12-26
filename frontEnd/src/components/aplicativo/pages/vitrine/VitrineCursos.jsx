@@ -1,11 +1,22 @@
 import styles from "./VitrineCursos.module.scss"
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function VitrineCursos() {
   const [trilhas, setTrilhas] = useState([]);
   const [cursos, setCursos] = useState([]);
   const [loading, setLoading] = useState(true); // Estado de carregamento
   const [usuario, setUsuario] = useState([])
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const estadoDeLogin = localStorage.getItem('login')
+
+    if (estadoDeLogin !== 'Logado') {
+      navigate('/perfil/register')
+    }
+  }, [])
 
 
   // PEGAR AS TRILHAS

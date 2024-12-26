@@ -11,9 +11,8 @@ export default function Register(props) {
         const Password = document.querySelector('#password').value
         const confirmPassword = document.querySelector('#confirm-password').value
 
-        Password === confirmPassword || Password == '' || confirmPassword == '' ? 
-        setButtonSubimit(true) : 
-        setButtonSubimit(false)
+        Password !== confirmPassword || Password == '' || confirmPassword == '' ? 
+        setButtonSubimit(false) : setButtonSubimit(true)
     }
 
 

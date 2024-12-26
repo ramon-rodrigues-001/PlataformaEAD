@@ -5,21 +5,30 @@ import Menu from "./menu/Menu"
 
 function Header(props) {
   const [menuActive, setMenuActive] = useState(false)
-  const [logado, setLogado] = useState(false)
   const {mudarTema, tema, ocultarAside} = props
+  const [logado, setLogado] = useState(false)
+  const [escolheuCurso, setEscolheuCurso] = useState(false)
 
 
   // Testando de esta logado para desbloquear novas paginas
+  // Tambem verifica se já escolheu um curso pra assistir
   useEffect(() => {
-    const estadoDoLogin = localStorage.getItem('login')
+    const verificarLogin = () => {
+      const estadoDoLogin = localStorage.getItem('login');
+      setLogado(estadoDoLogin === 'Logado');
+    };
+  
+    const verificarUltimoCurso = () => {
+      const idUltimoCurso = localStorage.getItem('idUltimoCurso');
+      setEscolheuCurso(!!idUltimoCurso);
+    };
+  
+    verificarLogin();
+    verificarUltimoCurso();
+  }, []);
+  
 
-    if (estadoDoLogin == 'Logado') {
-      setLogado(true)
-    }
-    else {
-      setLogado(false)
-    }
-  }, [])
+
 
 
 
@@ -37,28 +46,43 @@ function Header(props) {
             <img src="/logoVortex.png" alt="logoVortex"  className={styles.logoVortex}/>
           )}
         </div>
+        
 
         <ul>
+          {/* Verificar de o usuario esta logado para liberar as paginas */}
           {logado ? (
             <>
             <li id={styles.discontrair}> 
               <a href="/" ><i class="bi bi-cup-hot-fill"></i></a>
             </li>
-            <li id={styles.batePapo}>
+
+            {/* Verificar se o usuario já escolheu um curso pra assistir */}
+            {escolheuCurso ? (
+              <li id={styles.batePapo}>
               <a href="/assistir"><i class="bi bi-collection-play-fill"></i></a>
             </li>
+            ): (
+              <li id={styles.batePapo}>
+                <a href="/assistir" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-collection-play-fill"></i></a>
+              </li>
+            )}
+            
             <li id={styles.noticias}>
               <a href="/noticias"><i class="bi bi-chat-dots-fill"></i></a>
             </li>
             </>
-          ): (
+          )
+          : 
+          (
             <>
             <li id={styles.discontrair}> 
               <a href="/" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-cup-hot-fill"></i></a>
             </li>
+
             <li id={styles.batePapo}>
               <a href="/assistir" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-collection-play-fill"></i></a>
             </li>
+            
             <li id={styles.noticias}>
               <a href="/noticias" style={{ color: "gray", pointerEvents: "none" }}><i class="bi bi-chat-dots-fill"></i></a>
             </li>

@@ -10,7 +10,7 @@ import Noticias from './components/aplicativo/pages/noticias/Noticias';
 import Perfil from './components/aplicativo/pages/perfil/Perfil';
 import Login from './components/aplicativo/pages/perfil/login/Login';
 import Register from './components/aplicativo/pages/perfil/register/Register';
-import PageAnotacao from './components/aplicativo/pages/pageAnotacao/pageAnotacao';
+import PageAnotacao from './components/aplicativo/pages/pageAnotacao/PageAnotacao';
 import PageVenda from './components/aplicativo/pages/pageVenda/pageVenda';
 
 
